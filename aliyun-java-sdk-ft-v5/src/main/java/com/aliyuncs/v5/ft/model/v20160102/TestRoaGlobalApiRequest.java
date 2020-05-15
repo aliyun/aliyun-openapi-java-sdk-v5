@@ -16,6 +16,7 @@ package com.aliyuncs.v5.ft.model.v20160102;
 
 import com.aliyuncs.v5.RoaAcsRequest;
 import com.aliyuncs.v5.http.MethodType;
+import com.aliyuncs.v5.ft.Endpoint;
 
 /**
  * @author auto create
@@ -32,9 +33,13 @@ public class TestRoaGlobalApiRequest extends RoaAcsRequest<TestRoaGlobalApiRespo
 
 	private String bodyParam;
 	public TestRoaGlobalApiRequest() {
-		super("Ft", "2016-01-02", "TestRoaGlobalApi");
+		super("Ft", "2016-01-02", "TestRoaGlobalApi", "ft", "innerAPI");
 		setUriPattern("/web/getData");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getQueryParam() {

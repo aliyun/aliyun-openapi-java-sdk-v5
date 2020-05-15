@@ -16,6 +16,7 @@ package com.aliyuncs.v5.ft.model.v20160102;
 
 import com.aliyuncs.v5.RoaAcsRequest;
 import com.aliyuncs.v5.http.MethodType;
+import com.aliyuncs.v5.ft.Endpoint;
 
 /**
  * @author auto create
@@ -28,9 +29,13 @@ public class TestGateWayByRoaRequest extends RoaAcsRequest<TestGateWayByRoaRespo
 
 	private String success;
 	public TestGateWayByRoaRequest() {
-		super("Ft", "2016-01-02", "TestGateWayByRoa");
+		super("Ft", "2016-01-02", "TestGateWayByRoa", "ft", "innerAPI");
 		setUriPattern("/gateway");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getCode() {
