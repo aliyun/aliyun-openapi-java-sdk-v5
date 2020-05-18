@@ -41,7 +41,7 @@ public class ListIsvStatisticsResponseUnmarshaller {
 		total.setMemberNumber(_ctx.integerValue("ListIsvStatisticsResponse.Data.Total.MemberNumber"));
 		data.setTotal(total);
 
-		List<Statistic> statistics = new ArrayList<Statistic>();
+		List<Statistic> statisticsList = new ArrayList<Statistic>();
 		for (int i = 0; i < _ctx.lengthValue("ListIsvStatisticsResponse.Data.Statistics.Length"); i++) {
 			Statistic statistic = new Statistic();
 			statistic.setMeetingNumber(_ctx.stringValue("ListIsvStatisticsResponse.Data.Statistics["+ i +"].MeetingNumber"));
@@ -49,9 +49,9 @@ public class ListIsvStatisticsResponseUnmarshaller {
 			statistic.setMemberNumber(_ctx.stringValue("ListIsvStatisticsResponse.Data.Statistics["+ i +"].MemberNumber"));
 			statistic.setDay(_ctx.stringValue("ListIsvStatisticsResponse.Data.Statistics["+ i +"].Day"));
 
-			statistics.add(statistic);
+			statisticsList.add(statistic);
 		}
-		data.setStatistics(statistics);
+		data.setStatistics(statisticsList);
 		listIsvStatisticsResponse.setData(data);
 	 
 	 	return listIsvStatisticsResponse;

@@ -31,15 +31,15 @@ public class ListDeviceIpResponseUnmarshaller {
 		listDeviceIpResponse.setMessage(_ctx.stringValue("ListDeviceIpResponse.Message"));
 		listDeviceIpResponse.setSuccess(_ctx.booleanValue("ListDeviceIpResponse.Success"));
 
-		List<DevicesItem> devices = new ArrayList<DevicesItem>();
+		List<DevicesItem> devicesList = new ArrayList<DevicesItem>();
 		for (int i = 0; i < _ctx.lengthValue("ListDeviceIpResponse.Devices.Length"); i++) {
 			DevicesItem devicesItem = new DevicesItem();
 			devicesItem.setScreenCode(_ctx.stringValue("ListDeviceIpResponse.Devices["+ i +"].ScreenCode"));
 			devicesItem.setIp(_ctx.stringValue("ListDeviceIpResponse.Devices["+ i +"].Ip"));
 
-			devices.add(devicesItem);
+			devicesList.add(devicesItem);
 		}
-		listDeviceIpResponse.setDevices(devices);
+		listDeviceIpResponse.setDevices(devicesList);
 	 
 	 	return listDeviceIpResponse;
 	}

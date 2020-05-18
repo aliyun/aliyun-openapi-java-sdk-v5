@@ -30,7 +30,7 @@ public class BatchCreateDeviceResponseUnmarshaller {
 		batchCreateDeviceResponse.setMessage(_ctx.stringValue("BatchCreateDeviceResponse.Message"));
 		batchCreateDeviceResponse.setSuccess(_ctx.booleanValue("BatchCreateDeviceResponse.Success"));
 
-		List<Data> devices = new ArrayList<Data>();
+		List<Data> devicesList = new ArrayList<Data>();
 		for (int i = 0; i < _ctx.lengthValue("BatchCreateDeviceResponse.Devices.Length"); i++) {
 			Data data = new Data();
 			data.setDeviceErrorCode(_ctx.integerValue("BatchCreateDeviceResponse.Devices["+ i +"].DeviceErrorCode"));
@@ -38,9 +38,9 @@ public class BatchCreateDeviceResponseUnmarshaller {
 			data.setSN(_ctx.stringValue("BatchCreateDeviceResponse.Devices["+ i +"].SN"));
 			data.setActiveCode(_ctx.stringValue("BatchCreateDeviceResponse.Devices["+ i +"].ActiveCode"));
 
-			devices.add(data);
+			devicesList.add(data);
 		}
-		batchCreateDeviceResponse.setDevices(devices);
+		batchCreateDeviceResponse.setDevices(devicesList);
 	 
 	 	return batchCreateDeviceResponse;
 	}

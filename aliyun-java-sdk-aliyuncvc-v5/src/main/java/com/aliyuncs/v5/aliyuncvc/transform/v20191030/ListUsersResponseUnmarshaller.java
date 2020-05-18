@@ -37,7 +37,7 @@ public class ListUsersResponseUnmarshaller {
 		data.setPageSize(_ctx.integerValue("ListUsersResponse.Data.PageSize"));
 		data.setPageNumber(_ctx.integerValue("ListUsersResponse.Data.PageNumber"));
 
-		List<UserInfo> userInfos = new ArrayList<UserInfo>();
+		List<UserInfo> userInfosList = new ArrayList<UserInfo>();
 		for (int i = 0; i < _ctx.lengthValue("ListUsersResponse.Data.UserInfos.Length"); i++) {
 			UserInfo userInfo = new UserInfo();
 			userInfo.setCreateTime(_ctx.longValue("ListUsersResponse.Data.UserInfos["+ i +"].CreateTime"));
@@ -53,9 +53,9 @@ public class ListUsersResponseUnmarshaller {
 			userInfo.setJobName(_ctx.stringValue("ListUsersResponse.Data.UserInfos["+ i +"].JobName"));
 			userInfo.setUserId(_ctx.stringValue("ListUsersResponse.Data.UserInfos["+ i +"].UserId"));
 
-			userInfos.add(userInfo);
+			userInfosList.add(userInfo);
 		}
-		data.setUserInfos(userInfos);
+		data.setUserInfos(userInfosList);
 		listUsersResponse.setData(data);
 	 
 	 	return listUsersResponse;

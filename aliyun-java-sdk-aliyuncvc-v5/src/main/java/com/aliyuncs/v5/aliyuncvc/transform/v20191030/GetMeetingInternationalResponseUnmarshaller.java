@@ -41,7 +41,7 @@ public class GetMeetingInternationalResponseUnmarshaller {
 		meetingInfo.setMeetingUUID(_ctx.stringValue("GetMeetingInternationalResponse.MeetingInfo.MeetingUUID"));
 		meetingInfo.setPassword(_ctx.stringValue("GetMeetingInternationalResponse.MeetingInfo.Password"));
 
-		List<MemberListItem> memberList = new ArrayList<MemberListItem>();
+		List<MemberListItem> memberListList = new ArrayList<MemberListItem>();
 		for (int i = 0; i < _ctx.lengthValue("GetMeetingInternationalResponse.MeetingInfo.MemberList.Length"); i++) {
 			MemberListItem memberListItem = new MemberListItem();
 			memberListItem.setUserAvatarUrl(_ctx.stringValue("GetMeetingInternationalResponse.MeetingInfo.MemberList["+ i +"].UserAvatarUrl"));
@@ -50,9 +50,9 @@ public class GetMeetingInternationalResponseUnmarshaller {
 			memberListItem.setUserId(_ctx.stringValue("GetMeetingInternationalResponse.MeetingInfo.MemberList["+ i +"].UserId"));
 			memberListItem.setStatus(_ctx.stringValue("GetMeetingInternationalResponse.MeetingInfo.MemberList["+ i +"].Status"));
 
-			memberList.add(memberListItem);
+			memberListList.add(memberListItem);
 		}
-		meetingInfo.setMemberList(memberList);
+		meetingInfo.setMemberList(memberListList);
 		getMeetingInternationalResponse.setMeetingInfo(meetingInfo);
 	 
 	 	return getMeetingInternationalResponse;

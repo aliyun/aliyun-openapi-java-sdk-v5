@@ -30,7 +30,7 @@ public class GetDeviceActiveCodeResponseUnmarshaller {
 		getDeviceActiveCodeResponse.setMessage(_ctx.stringValue("GetDeviceActiveCodeResponse.Message"));
 		getDeviceActiveCodeResponse.setSuccess(_ctx.booleanValue("GetDeviceActiveCodeResponse.Success"));
 
-		List<Data> devices = new ArrayList<Data>();
+		List<Data> devicesList = new ArrayList<Data>();
 		for (int i = 0; i < _ctx.lengthValue("GetDeviceActiveCodeResponse.Devices.Length"); i++) {
 			Data data = new Data();
 			data.setDeviceErrorCode(_ctx.integerValue("GetDeviceActiveCodeResponse.Devices["+ i +"].DeviceErrorCode"));
@@ -38,9 +38,9 @@ public class GetDeviceActiveCodeResponseUnmarshaller {
 			data.setSN(_ctx.stringValue("GetDeviceActiveCodeResponse.Devices["+ i +"].SN"));
 			data.setActiveCode(_ctx.stringValue("GetDeviceActiveCodeResponse.Devices["+ i +"].ActiveCode"));
 
-			devices.add(data);
+			devicesList.add(data);
 		}
-		getDeviceActiveCodeResponse.setDevices(devices);
+		getDeviceActiveCodeResponse.setDevices(devicesList);
 	 
 	 	return getDeviceActiveCodeResponse;
 	}

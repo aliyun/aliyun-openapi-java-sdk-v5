@@ -41,7 +41,7 @@ public class ListMembersResponseUnmarshaller {
 		meetingInfo.setUserId(_ctx.stringValue("ListMembersResponse.MeetingInfo.UserId"));
 		meetingInfo.setMeetingUUID(_ctx.stringValue("ListMembersResponse.MeetingInfo.MeetingUUID"));
 
-		List<MemberRecord> memberInfos = new ArrayList<MemberRecord>();
+		List<MemberRecord> memberInfosList = new ArrayList<MemberRecord>();
 		for (int i = 0; i < _ctx.lengthValue("ListMembersResponse.MeetingInfo.MemberInfos.Length"); i++) {
 			MemberRecord memberRecord = new MemberRecord();
 			memberRecord.setMemberUUID(_ctx.stringValue("ListMembersResponse.MeetingInfo.MemberInfos["+ i +"].MemberUUID"));
@@ -51,9 +51,9 @@ public class ListMembersResponseUnmarshaller {
 			memberRecord.setEndTime(_ctx.longValue("ListMembersResponse.MeetingInfo.MemberInfos["+ i +"].EndTime"));
 			memberRecord.setUserName(_ctx.stringValue("ListMembersResponse.MeetingInfo.MemberInfos["+ i +"].UserName"));
 
-			memberInfos.add(memberRecord);
+			memberInfosList.add(memberRecord);
 		}
-		meetingInfo.setMemberInfos(memberInfos);
+		meetingInfo.setMemberInfos(memberInfosList);
 		listMembersResponse.setMeetingInfo(meetingInfo);
 	 
 	 	return listMembersResponse;
