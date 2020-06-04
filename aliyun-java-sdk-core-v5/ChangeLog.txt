@@ -1,4 +1,7 @@
-﻿2020-05-13 Version: 5.0.0
+﻿2020-06-04 Version: 5.0.1
+1, Content type error throws the original return
+
+2020-05-13 Version: 5.0.0
 1, Change to v5
 
 
