@@ -36,6 +36,8 @@ public class DescribeUserEncryptionKeyListRequest extends RpcAcsRequest<Describe
 	private String ownerAccount;
 
 	private Long ownerId;
+
+	private String targetRegionId;
 	public DescribeUserEncryptionKeyListRequest() {
 		super("Dds", "2015-12-01", "DescribeUserEncryptionKeyList", "Dds");
 		setMethod(MethodType.POST);
@@ -108,6 +110,17 @@ public class DescribeUserEncryptionKeyListRequest extends RpcAcsRequest<Describe
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId.toString());
+		}
+	}
+
+	public String getTargetRegionId() {
+		return this.targetRegionId;
+	}
+
+	public void setTargetRegionId(String targetRegionId) {
+		this.targetRegionId = targetRegionId;
+		if(targetRegionId != null){
+			putQueryParameter("TargetRegionId", targetRegionId);
 		}
 	}
 

@@ -22,30 +22,24 @@ import com.aliyuncs.v5.dds.Endpoint;
  * @author auto create
  * @version 
  */
-public class CheckRecoveryConditionRequest extends RpcAcsRequest<CheckRecoveryConditionResponse> {
+public class DescribeActiveOperationTaskTypeRequest extends RpcAcsRequest<DescribeActiveOperationTaskTypeResponse> {
 	   
 
 	private Long resourceOwnerId;
 
 	private String resourceGroupId;
 
-	private String databaseNames;
+	private Integer isHistory;
 
 	private String securityToken;
-
-	private String restoreTime;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String backupId;
-
-	private String sourceDBInstance;
-
 	private Long ownerId;
-	public CheckRecoveryConditionRequest() {
-		super("Dds", "2015-12-01", "CheckRecoveryCondition", "Dds");
+	public DescribeActiveOperationTaskTypeRequest() {
+		super("Dds", "2015-12-01", "DescribeActiveOperationTaskType", "Dds");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -75,14 +69,14 @@ public class CheckRecoveryConditionRequest extends RpcAcsRequest<CheckRecoveryCo
 		}
 	}
 
-	public String getDatabaseNames() {
-		return this.databaseNames;
+	public Integer getIsHistory() {
+		return this.isHistory;
 	}
 
-	public void setDatabaseNames(String databaseNames) {
-		this.databaseNames = databaseNames;
-		if(databaseNames != null){
-			putQueryParameter("DatabaseNames", databaseNames);
+	public void setIsHistory(Integer isHistory) {
+		this.isHistory = isHistory;
+		if(isHistory != null){
+			putQueryParameter("IsHistory", isHistory.toString());
 		}
 	}
 
@@ -94,17 +88,6 @@ public class CheckRecoveryConditionRequest extends RpcAcsRequest<CheckRecoveryCo
 		this.securityToken = securityToken;
 		if(securityToken != null){
 			putQueryParameter("SecurityToken", securityToken);
-		}
-	}
-
-	public String getRestoreTime() {
-		return this.restoreTime;
-	}
-
-	public void setRestoreTime(String restoreTime) {
-		this.restoreTime = restoreTime;
-		if(restoreTime != null){
-			putQueryParameter("RestoreTime", restoreTime);
 		}
 	}
 
@@ -130,28 +113,6 @@ public class CheckRecoveryConditionRequest extends RpcAcsRequest<CheckRecoveryCo
 		}
 	}
 
-	public String getBackupId() {
-		return this.backupId;
-	}
-
-	public void setBackupId(String backupId) {
-		this.backupId = backupId;
-		if(backupId != null){
-			putQueryParameter("BackupId", backupId);
-		}
-	}
-
-	public String getSourceDBInstance() {
-		return this.sourceDBInstance;
-	}
-
-	public void setSourceDBInstance(String sourceDBInstance) {
-		this.sourceDBInstance = sourceDBInstance;
-		if(sourceDBInstance != null){
-			putQueryParameter("SourceDBInstance", sourceDBInstance);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -164,8 +125,8 @@ public class CheckRecoveryConditionRequest extends RpcAcsRequest<CheckRecoveryCo
 	}
 
 	@Override
-	public Class<CheckRecoveryConditionResponse> getResponseClass() {
-		return CheckRecoveryConditionResponse.class;
+	public Class<DescribeActiveOperationTaskTypeResponse> getResponseClass() {
+		return DescribeActiveOperationTaskTypeResponse.class;
 	}
 
 }

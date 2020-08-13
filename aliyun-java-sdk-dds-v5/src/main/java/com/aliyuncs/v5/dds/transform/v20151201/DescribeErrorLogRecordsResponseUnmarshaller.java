@@ -39,7 +39,7 @@ public class DescribeErrorLogRecordsResponseUnmarshaller {
 			logRecords.setCreateTime(_ctx.stringValue("DescribeErrorLogRecordsResponse.Items["+ i +"].CreateTime"));
 			logRecords.setCategory(_ctx.stringValue("DescribeErrorLogRecordsResponse.Items["+ i +"].Category"));
 			logRecords.setConnInfo(_ctx.stringValue("DescribeErrorLogRecordsResponse.Items["+ i +"].ConnInfo"));
-			logRecords.setContent(_ctx.longValue("DescribeErrorLogRecordsResponse.Items["+ i +"].Content"));
+			logRecords.setContent(_ctx.stringValue("DescribeErrorLogRecordsResponse.Items["+ i +"].Content"));
 
 			itemsList.add(logRecords);
 		}

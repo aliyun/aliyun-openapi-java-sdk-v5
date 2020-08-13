@@ -22,30 +22,32 @@ import com.aliyuncs.v5.dds.Endpoint;
  * @author auto create
  * @version 
  */
-public class CheckRecoveryConditionRequest extends RpcAcsRequest<CheckRecoveryConditionResponse> {
+public class EvaluateResourceRequest extends RpcAcsRequest<EvaluateResourceResponse> {
 	   
 
 	private Long resourceOwnerId;
 
-	private String resourceGroupId;
+	private String engineVersion;
 
-	private String databaseNames;
+	private String shardsInfo;
 
 	private String securityToken;
 
-	private String restoreTime;
+	private String engine;
+
+	private String dBInstanceId;
 
 	private String resourceOwnerAccount;
 
 	private String ownerAccount;
 
-	private String backupId;
-
-	private String sourceDBInstance;
-
 	private Long ownerId;
-	public CheckRecoveryConditionRequest() {
-		super("Dds", "2015-12-01", "CheckRecoveryCondition", "Dds");
+
+	private String dBInstanceClass;
+
+	private String zoneId;
+	public EvaluateResourceRequest() {
+		super("Dds", "2015-12-01", "EvaluateResource", "Dds");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -64,25 +66,25 @@ public class CheckRecoveryConditionRequest extends RpcAcsRequest<CheckRecoveryCo
 		}
 	}
 
-	public String getResourceGroupId() {
-		return this.resourceGroupId;
+	public String getEngineVersion() {
+		return this.engineVersion;
 	}
 
-	public void setResourceGroupId(String resourceGroupId) {
-		this.resourceGroupId = resourceGroupId;
-		if(resourceGroupId != null){
-			putQueryParameter("ResourceGroupId", resourceGroupId);
+	public void setEngineVersion(String engineVersion) {
+		this.engineVersion = engineVersion;
+		if(engineVersion != null){
+			putQueryParameter("EngineVersion", engineVersion);
 		}
 	}
 
-	public String getDatabaseNames() {
-		return this.databaseNames;
+	public String getShardsInfo() {
+		return this.shardsInfo;
 	}
 
-	public void setDatabaseNames(String databaseNames) {
-		this.databaseNames = databaseNames;
-		if(databaseNames != null){
-			putQueryParameter("DatabaseNames", databaseNames);
+	public void setShardsInfo(String shardsInfo) {
+		this.shardsInfo = shardsInfo;
+		if(shardsInfo != null){
+			putQueryParameter("ShardsInfo", shardsInfo);
 		}
 	}
 
@@ -97,14 +99,25 @@ public class CheckRecoveryConditionRequest extends RpcAcsRequest<CheckRecoveryCo
 		}
 	}
 
-	public String getRestoreTime() {
-		return this.restoreTime;
+	public String getEngine() {
+		return this.engine;
 	}
 
-	public void setRestoreTime(String restoreTime) {
-		this.restoreTime = restoreTime;
-		if(restoreTime != null){
-			putQueryParameter("RestoreTime", restoreTime);
+	public void setEngine(String engine) {
+		this.engine = engine;
+		if(engine != null){
+			putQueryParameter("Engine", engine);
+		}
+	}
+
+	public String getDBInstanceId() {
+		return this.dBInstanceId;
+	}
+
+	public void setDBInstanceId(String dBInstanceId) {
+		this.dBInstanceId = dBInstanceId;
+		if(dBInstanceId != null){
+			putQueryParameter("DBInstanceId", dBInstanceId);
 		}
 	}
 
@@ -130,28 +143,6 @@ public class CheckRecoveryConditionRequest extends RpcAcsRequest<CheckRecoveryCo
 		}
 	}
 
-	public String getBackupId() {
-		return this.backupId;
-	}
-
-	public void setBackupId(String backupId) {
-		this.backupId = backupId;
-		if(backupId != null){
-			putQueryParameter("BackupId", backupId);
-		}
-	}
-
-	public String getSourceDBInstance() {
-		return this.sourceDBInstance;
-	}
-
-	public void setSourceDBInstance(String sourceDBInstance) {
-		this.sourceDBInstance = sourceDBInstance;
-		if(sourceDBInstance != null){
-			putQueryParameter("SourceDBInstance", sourceDBInstance);
-		}
-	}
-
 	public Long getOwnerId() {
 		return this.ownerId;
 	}
@@ -163,9 +154,31 @@ public class CheckRecoveryConditionRequest extends RpcAcsRequest<CheckRecoveryCo
 		}
 	}
 
+	public String getDBInstanceClass() {
+		return this.dBInstanceClass;
+	}
+
+	public void setDBInstanceClass(String dBInstanceClass) {
+		this.dBInstanceClass = dBInstanceClass;
+		if(dBInstanceClass != null){
+			putQueryParameter("DBInstanceClass", dBInstanceClass);
+		}
+	}
+
+	public String getZoneId() {
+		return this.zoneId;
+	}
+
+	public void setZoneId(String zoneId) {
+		this.zoneId = zoneId;
+		if(zoneId != null){
+			putQueryParameter("ZoneId", zoneId);
+		}
+	}
+
 	@Override
-	public Class<CheckRecoveryConditionResponse> getResponseClass() {
-		return CheckRecoveryConditionResponse.class;
+	public Class<EvaluateResourceResponse> getResponseClass() {
+		return EvaluateResourceResponse.class;
 	}
 
 }
