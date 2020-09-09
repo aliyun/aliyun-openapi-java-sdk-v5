@@ -15,6 +15,7 @@
 package com.aliyuncs.v5.vod.model.v20170321;
 
 import com.aliyuncs.v5.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.v5.http.MethodType;
 import com.aliyuncs.v5.vod.Endpoint;
 
@@ -34,6 +35,8 @@ public class DescribeVodUserDomainsRequest extends RpcAcsRequest<DescribeVodUser
 	private String cdnType;
 
 	private Integer pageSize;
+
+	private List<Tag> tag;
 
 	private String funcFilter;
 
@@ -110,6 +113,20 @@ public class DescribeVodUserDomainsRequest extends RpcAcsRequest<DescribeVodUser
 		}
 	}
 
+	public List<Tag> getTag() {
+		return this.tag;
+	}
+
+	public void setTag(List<Tag> tag) {
+		this.tag = tag;	
+		if (tag != null) {
+			for (int depth1 = 0; depth1 < tag.size(); depth1++) {
+				putQueryParameter("Tag." + (depth1 + 1) + ".Value" , tag.get(depth1).getValue());
+				putQueryParameter("Tag." + (depth1 + 1) + ".Key" , tag.get(depth1).getKey());
+			}
+		}	
+	}
+
 	public String getFuncFilter() {
 		return this.funcFilter;
 	}
@@ -173,6 +190,29 @@ public class DescribeVodUserDomainsRequest extends RpcAcsRequest<DescribeVodUser
 		this.domainSearchType = domainSearchType;
 		if(domainSearchType != null){
 			putQueryParameter("DomainSearchType", domainSearchType);
+		}
+	}
+
+	public static class Tag {
+
+		private String value;
+
+		private String key;
+
+		public String getValue() {
+			return this.value;
+		}
+
+		public void setValue(String value) {
+			this.value = value;
+		}
+
+		public String getKey() {
+			return this.key;
+		}
+
+		public void setKey(String key) {
+			this.key = key;
 		}
 	}
 
