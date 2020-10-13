@@ -1,4 +1,8 @@
-﻿2020-06-04 Version: 5.0.1
+﻿2020-10-13 Version: 5.0.2
+1, Turn off automatic retry
+2, Improve dependency
+
+2020-06-04 Version: 5.0.1
 1, Content type error throws the original return
 
 2020-05-13 Version: 5.0.0
