@@ -25,13 +25,13 @@ import com.aliyuncs.v5.market.Endpoint;
 public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 	   
 
-	private String orderSouce;
-
 	private String commodity;
 
 	private String clientToken;
 
 	private String ownerId;
+
+	private String orderSource;
 
 	private String paymentType;
 
@@ -43,17 +43,6 @@ public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getOrderSouce() {
-		return this.orderSouce;
-	}
-
-	public void setOrderSouce(String orderSouce) {
-		this.orderSouce = orderSouce;
-		if(orderSouce != null){
-			putQueryParameter("OrderSouce", orderSouce);
-		}
 	}
 
 	public String getCommodity() {
@@ -86,6 +75,17 @@ public class CreateOrderRequest extends RpcAcsRequest<CreateOrderResponse> {
 		this.ownerId = ownerId;
 		if(ownerId != null){
 			putQueryParameter("OwnerId", ownerId);
+		}
+	}
+
+	public String getOrderSource() {
+		return this.orderSource;
+	}
+
+	public void setOrderSource(String orderSource) {
+		this.orderSource = orderSource;
+		if(orderSource != null){
+			putQueryParameter("OrderSource", orderSource);
 		}
 	}
 
