@@ -22,14 +22,16 @@ import com.aliyuncs.v5.cs.Endpoint;
  * @author auto create
  * @version 
  */
-public class ModifyClusterRequest extends RoaAcsRequest<ModifyClusterResponse> {
+public class ScaleClusterNodePoolRequest extends RoaAcsRequest<ScaleClusterNodePoolResponse> {
 	   
 
 	private String clusterId;
-	public ModifyClusterRequest() {
-		super("CS", "2015-12-15", "ModifyCluster");
-		setUriPattern("/api/v2/clusters/[ClusterId]");
-		setMethod(MethodType.PUT);
+
+	private String nodepoolId;
+	public ScaleClusterNodePoolRequest() {
+		super("CS", "2015-12-15", "ScaleClusterNodePool");
+		setUriPattern("/clusters/[ClusterId]/nodepools/[NodepoolId]");
+		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
@@ -47,9 +49,20 @@ public class ModifyClusterRequest extends RoaAcsRequest<ModifyClusterResponse> {
 		}
 	}
 
+	public String getNodepoolId() {
+		return this.nodepoolId;
+	}
+
+	public void setNodepoolId(String nodepoolId) {
+		this.nodepoolId = nodepoolId;
+		if(nodepoolId != null){
+			putPathParameter("NodepoolId", nodepoolId);
+		}
+	}
+
 	@Override
-	public Class<ModifyClusterResponse> getResponseClass() {
-		return ModifyClusterResponse.class;
+	public Class<ScaleClusterNodePoolResponse> getResponseClass() {
+		return ScaleClusterNodePoolResponse.class;
 	}
 
 }

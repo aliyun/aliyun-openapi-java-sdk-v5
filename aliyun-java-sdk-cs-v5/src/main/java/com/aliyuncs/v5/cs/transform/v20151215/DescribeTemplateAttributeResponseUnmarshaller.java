@@ -14,15 +14,15 @@
 
 package com.aliyuncs.v5.cs.transform.v20151215;
 
-import com.aliyuncs.v5.cs.model.v20151215.DescribeClusterLogsResponse;
+import com.aliyuncs.v5.cs.model.v20151215.DescribeTemplateAttributeResponse;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 
-public class DescribeClusterLogsResponseUnmarshaller {
+public class DescribeTemplateAttributeResponseUnmarshaller {
 
-	public static DescribeClusterLogsResponse unmarshall(DescribeClusterLogsResponse describeClusterLogsResponse, UnmarshallerContext _ctx) {
+	public static DescribeTemplateAttributeResponse unmarshall(DescribeTemplateAttributeResponse describeTemplateAttributeResponse, UnmarshallerContext _ctx) {
 		
 	 
-	 	return describeClusterLogsResponse;
+	 	return describeTemplateAttributeResponse;
 	}
 }

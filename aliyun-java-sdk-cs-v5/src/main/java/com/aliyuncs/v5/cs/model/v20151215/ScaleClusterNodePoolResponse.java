@@ -15,27 +15,22 @@
 package com.aliyuncs.v5.cs.model.v20151215;
 
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.cs.transform.v20151215.DescribeClusterAddonsVersionResponseUnmarshaller;
+import com.aliyuncs.v5.cs.transform.v20151215.ScaleClusterNodePoolResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class DescribeClusterAddonsVersionResponse extends AcsResponse {
+public class ScaleClusterNodePoolResponse extends AcsResponse {
 
-	private String addonsVersion;
-
-	public String getAddonsVersion() {
-		return this.addonsVersion;
-	}
-
-	public void setAddonsVersion(String addonsVersion) {
-		this.addonsVersion = addonsVersion;
+	@Override
+	public ScaleClusterNodePoolResponse getInstance(UnmarshallerContext context) {
+		return	ScaleClusterNodePoolResponseUnmarshaller.unmarshall(this, context);
 	}
 
 	@Override
-	public DescribeClusterAddonsVersionResponse getInstance(UnmarshallerContext context) {
-		return	DescribeClusterAddonsVersionResponseUnmarshaller.unmarshall(this, context);
+	public boolean checkShowJsonItemName() {
+		return false;
 	}
 }

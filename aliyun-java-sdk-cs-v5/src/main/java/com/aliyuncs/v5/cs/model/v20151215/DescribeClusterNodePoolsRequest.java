@@ -22,14 +22,14 @@ import com.aliyuncs.v5.cs.Endpoint;
  * @author auto create
  * @version 
  */
-public class ModifyClusterRequest extends RoaAcsRequest<ModifyClusterResponse> {
+public class DescribeClusterNodePoolsRequest extends RoaAcsRequest<DescribeClusterNodePoolsResponse> {
 	   
 
 	private String clusterId;
-	public ModifyClusterRequest() {
-		super("CS", "2015-12-15", "ModifyCluster");
-		setUriPattern("/api/v2/clusters/[ClusterId]");
-		setMethod(MethodType.PUT);
+	public DescribeClusterNodePoolsRequest() {
+		super("CS", "2015-12-15", "DescribeClusterNodePools");
+		setUriPattern("/clusters/[ClusterId]/nodepools");
+		setMethod(MethodType.GET);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
@@ -48,8 +48,8 @@ public class ModifyClusterRequest extends RoaAcsRequest<ModifyClusterResponse> {
 	}
 
 	@Override
-	public Class<ModifyClusterResponse> getResponseClass() {
-		return ModifyClusterResponse.class;
+	public Class<DescribeClusterNodePoolsResponse> getResponseClass() {
+		return DescribeClusterNodePoolsResponse.class;
 	}
 
 }

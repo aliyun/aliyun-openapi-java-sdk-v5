@@ -22,7 +22,7 @@ public class DescribeClusterAddonsVersionResponseUnmarshaller {
 
 	public static DescribeClusterAddonsVersionResponse unmarshall(DescribeClusterAddonsVersionResponse describeClusterAddonsVersionResponse, UnmarshallerContext _ctx) {
 		
-		describeClusterAddonsVersionResponse.setAddonsName(_ctx.stringValue("DescribeClusterAddonsVersionResponse.AddonsName"));
+		describeClusterAddonsVersionResponse.setAddonsVersion(_ctx.stringValue("DescribeClusterAddonsVersionResponse.AddonsVersion"));
 	 
 	 	return describeClusterAddonsVersionResponse;
 	}

@@ -20,7 +20,6 @@ import java.util.List;
 import com.aliyuncs.v5.cs.model.v20151215.DescribeAddonsResponse;
 import com.aliyuncs.v5.cs.model.v20151215.DescribeAddonsResponse.ComponentGroupsItem;
 import com.aliyuncs.v5.cs.model.v20151215.DescribeAddonsResponse.ComponentGroupsItem.ItemsItem;
-import com.aliyuncs.v5.cs.model.v20151215.DescribeAddonsResponse.StandardComponents;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 
@@ -28,10 +27,7 @@ public class DescribeAddonsResponseUnmarshaller {
 
 	public static DescribeAddonsResponse unmarshall(DescribeAddonsResponse describeAddonsResponse, UnmarshallerContext _ctx) {
 		
-
-		StandardComponents standardComponents = new StandardComponents();
-		standardComponents.setComponentName(_ctx.stringValue("DescribeAddonsResponse.StandardComponents.ComponentName"));
-		describeAddonsResponse.setStandardComponents(standardComponents);
+		describeAddonsResponse.setStandardComponents(_ctx.stringValue("DescribeAddonsResponse.StandardComponents"));
 
 		List<ComponentGroupsItem> componentGroupsList = new ArrayList<ComponentGroupsItem>();
 		for (int i = 0; i < _ctx.lengthValue("DescribeAddonsResponse.ComponentGroups.Length"); i++) {

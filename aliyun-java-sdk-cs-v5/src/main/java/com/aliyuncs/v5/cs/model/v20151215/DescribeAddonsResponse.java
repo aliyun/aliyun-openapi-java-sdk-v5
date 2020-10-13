@@ -25,9 +25,17 @@ import com.aliyuncs.v5.transform.UnmarshallerContext;
  */
 public class DescribeAddonsResponse extends AcsResponse {
 
+	private String standardComponents;
+
 	private List<ComponentGroupsItem> componentGroups;
 
-	private StandardComponents standardComponents;
+	public String getStandardComponents() {
+		return this.standardComponents;
+	}
+
+	public void setStandardComponents(String standardComponents) {
+		this.standardComponents = standardComponents;
+	}
 
 	public List<ComponentGroupsItem> getComponentGroups() {
 		return this.componentGroups;
@@ -35,14 +43,6 @@ public class DescribeAddonsResponse extends AcsResponse {
 
 	public void setComponentGroups(List<ComponentGroupsItem> componentGroups) {
 		this.componentGroups = componentGroups;
-	}
-
-	public StandardComponents getStandardComponents() {
-		return this.standardComponents;
-	}
-
-	public void setStandardComponents(StandardComponents standardComponents) {
-		this.standardComponents = standardComponents;
 	}
 
 	public static class ComponentGroupsItem {
@@ -128,19 +128,6 @@ public class DescribeAddonsResponse extends AcsResponse {
 			public void setRequired(String required) {
 				this.required = required;
 			}
-		}
-	}
-
-	public static class StandardComponents {
-
-		private String componentName;
-
-		public String getComponentName() {
-			return this.componentName;
-		}
-
-		public void setComponentName(String componentName) {
-			this.componentName = componentName;
 		}
 	}
 

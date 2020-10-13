@@ -22,34 +22,34 @@ import com.aliyuncs.v5.cs.Endpoint;
  * @author auto create
  * @version 
  */
-public class ModifyClusterRequest extends RoaAcsRequest<ModifyClusterResponse> {
+public class DescribeTemplateAttributeRequest extends RoaAcsRequest<DescribeTemplateAttributeResponse> {
 	   
 
-	private String clusterId;
-	public ModifyClusterRequest() {
-		super("CS", "2015-12-15", "ModifyCluster");
-		setUriPattern("/api/v2/clusters/[ClusterId]");
-		setMethod(MethodType.PUT);
+	private String templateId;
+	public DescribeTemplateAttributeRequest() {
+		super("CS", "2015-12-15", "DescribeTemplateAttribute");
+		setUriPattern("/templates/[TemplateId]");
+		setMethod(MethodType.GET);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
 	}
 
-	public String getClusterId() {
-		return this.clusterId;
+	public String getTemplateId() {
+		return this.templateId;
 	}
 
-	public void setClusterId(String clusterId) {
-		this.clusterId = clusterId;
-		if(clusterId != null){
-			putPathParameter("ClusterId", clusterId);
+	public void setTemplateId(String templateId) {
+		this.templateId = templateId;
+		if(templateId != null){
+			putPathParameter("TemplateId", templateId);
 		}
 	}
 
 	@Override
-	public Class<ModifyClusterResponse> getResponseClass() {
-		return ModifyClusterResponse.class;
+	public Class<DescribeTemplateAttributeResponse> getResponseClass() {
+		return DescribeTemplateAttributeResponse.class;
 	}
 
 }
