@@ -22,42 +22,30 @@ import com.aliyuncs.v5.vpc.Endpoint;
  * @author auto create
  * @version 
  */
-public class CreateNatGatewayRequest extends RpcAcsRequest<CreateNatGatewayResponse> {
+public class ModifyCommonBandwidthPackageInternetChargeTypeRequest extends RpcAcsRequest<ModifyCommonBandwidthPackageInternetChargeTypeResponse> {
 	   
 
 	private Long resourceOwnerId;
 
-	private String clientToken;
-
-	private String description;
-
-	private String spec;
-
-	private String duration;
-
-	private String natType;
-
 	private String instanceChargeType;
+
+	private String bandwidthPackageId;
 
 	private Boolean autoPay;
 
 	private String resourceOwnerAccount;
 
+	private Integer bandwidth;
+
 	private String ownerAccount;
 
 	private Long ownerId;
 
-	private String vSwitchId;
-
 	private String internetChargeType;
 
-	private String vpcId;
-
-	private String name;
-
-	private String pricingCycle;
-	public CreateNatGatewayRequest() {
-		super("Vpc", "2016-04-28", "CreateNatGateway", "vpc");
+	private Integer ratio;
+	public ModifyCommonBandwidthPackageInternetChargeTypeRequest() {
+		super("Vpc", "2016-04-28", "ModifyCommonBandwidthPackageInternetChargeType", "vpc");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -76,61 +64,6 @@ public class CreateNatGatewayRequest extends RpcAcsRequest<CreateNatGatewayRespo
 		}
 	}
 
-	public String getClientToken() {
-		return this.clientToken;
-	}
-
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
-	public String getDescription() {
-		return this.description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-		if(description != null){
-			putQueryParameter("Description", description);
-		}
-	}
-
-	public String getSpec() {
-		return this.spec;
-	}
-
-	public void setSpec(String spec) {
-		this.spec = spec;
-		if(spec != null){
-			putQueryParameter("Spec", spec);
-		}
-	}
-
-	public String getDuration() {
-		return this.duration;
-	}
-
-	public void setDuration(String duration) {
-		this.duration = duration;
-		if(duration != null){
-			putQueryParameter("Duration", duration);
-		}
-	}
-
-	public String getNatType() {
-		return this.natType;
-	}
-
-	public void setNatType(String natType) {
-		this.natType = natType;
-		if(natType != null){
-			putQueryParameter("NatType", natType);
-		}
-	}
-
 	public String getInstanceChargeType() {
 		return this.instanceChargeType;
 	}
@@ -139,6 +72,17 @@ public class CreateNatGatewayRequest extends RpcAcsRequest<CreateNatGatewayRespo
 		this.instanceChargeType = instanceChargeType;
 		if(instanceChargeType != null){
 			putQueryParameter("InstanceChargeType", instanceChargeType);
+		}
+	}
+
+	public String getBandwidthPackageId() {
+		return this.bandwidthPackageId;
+	}
+
+	public void setBandwidthPackageId(String bandwidthPackageId) {
+		this.bandwidthPackageId = bandwidthPackageId;
+		if(bandwidthPackageId != null){
+			putQueryParameter("BandwidthPackageId", bandwidthPackageId);
 		}
 	}
 
@@ -164,6 +108,17 @@ public class CreateNatGatewayRequest extends RpcAcsRequest<CreateNatGatewayRespo
 		}
 	}
 
+	public Integer getBandwidth() {
+		return this.bandwidth;
+	}
+
+	public void setBandwidth(Integer bandwidth) {
+		this.bandwidth = bandwidth;
+		if(bandwidth != null){
+			putQueryParameter("Bandwidth", bandwidth.toString());
+		}
+	}
+
 	public String getOwnerAccount() {
 		return this.ownerAccount;
 	}
@@ -186,17 +141,6 @@ public class CreateNatGatewayRequest extends RpcAcsRequest<CreateNatGatewayRespo
 		}
 	}
 
-	public String getVSwitchId() {
-		return this.vSwitchId;
-	}
-
-	public void setVSwitchId(String vSwitchId) {
-		this.vSwitchId = vSwitchId;
-		if(vSwitchId != null){
-			putQueryParameter("VSwitchId", vSwitchId);
-		}
-	}
-
 	public String getInternetChargeType() {
 		return this.internetChargeType;
 	}
@@ -208,42 +152,20 @@ public class CreateNatGatewayRequest extends RpcAcsRequest<CreateNatGatewayRespo
 		}
 	}
 
-	public String getVpcId() {
-		return this.vpcId;
+	public Integer getRatio() {
+		return this.ratio;
 	}
 
-	public void setVpcId(String vpcId) {
-		this.vpcId = vpcId;
-		if(vpcId != null){
-			putQueryParameter("VpcId", vpcId);
-		}
-	}
-
-	public String getName() {
-		return this.name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-		if(name != null){
-			putQueryParameter("Name", name);
-		}
-	}
-
-	public String getPricingCycle() {
-		return this.pricingCycle;
-	}
-
-	public void setPricingCycle(String pricingCycle) {
-		this.pricingCycle = pricingCycle;
-		if(pricingCycle != null){
-			putQueryParameter("PricingCycle", pricingCycle);
+	public void setRatio(Integer ratio) {
+		this.ratio = ratio;
+		if(ratio != null){
+			putQueryParameter("Ratio", ratio.toString());
 		}
 	}
 
 	@Override
-	public Class<CreateNatGatewayResponse> getResponseClass() {
-		return CreateNatGatewayResponse.class;
+	public Class<ModifyCommonBandwidthPackageInternetChargeTypeResponse> getResponseClass() {
+		return ModifyCommonBandwidthPackageInternetChargeTypeResponse.class;
 	}
 
 }
