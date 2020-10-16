@@ -22,19 +22,32 @@ import com.aliyuncs.v5.iot.Endpoint;
  * @author auto create
  * @version 
  */
-public class ListOTAModuleByProductRequest extends RpcAcsRequest<ListOTAModuleByProductResponse> {
+public class UpdateThingModelValidationConfigRequest extends RpcAcsRequest<UpdateThingModelValidationConfigResponse> {
 	   
+
+	private Integer validateType;
 
 	private String iotInstanceId;
 
 	private String productKey;
-	public ListOTAModuleByProductRequest() {
-		super("Iot", "2018-01-20", "ListOTAModuleByProduct", "iot");
-		setMethod(MethodType.GET);
+	public UpdateThingModelValidationConfigRequest() {
+		super("Iot", "2018-01-20", "UpdateThingModelValidationConfig", "iot");
+		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public Integer getValidateType() {
+		return this.validateType;
+	}
+
+	public void setValidateType(Integer validateType) {
+		this.validateType = validateType;
+		if(validateType != null){
+			putQueryParameter("ValidateType", validateType.toString());
+		}
 	}
 
 	public String getIotInstanceId() {
@@ -60,8 +73,8 @@ public class ListOTAModuleByProductRequest extends RpcAcsRequest<ListOTAModuleBy
 	}
 
 	@Override
-	public Class<ListOTAModuleByProductResponse> getResponseClass() {
-		return ListOTAModuleByProductResponse.class;
+	public Class<UpdateThingModelValidationConfigResponse> getResponseClass() {
+		return UpdateThingModelValidationConfigResponse.class;
 	}
 
 }
