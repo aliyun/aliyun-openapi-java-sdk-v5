@@ -15,14 +15,14 @@
 package com.aliyuncs.v5.polardbx.model.v20200202;
 
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.polardbx.transform.v20200202.ModifyDBInstanceClassResponseUnmarshaller;
+import com.aliyuncs.v5.polardbx.transform.v20200202.UpdatePolarDBXInstanceNodeResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class ModifyDBInstanceClassResponse extends AcsResponse {
+public class UpdatePolarDBXInstanceNodeResponse extends AcsResponse {
 
 	private String requestId;
 
@@ -45,8 +45,8 @@ public class ModifyDBInstanceClassResponse extends AcsResponse {
 	}
 
 	@Override
-	public ModifyDBInstanceClassResponse getInstance(UnmarshallerContext context) {
-		return	ModifyDBInstanceClassResponseUnmarshaller.unmarshall(this, context);
+	public UpdatePolarDBXInstanceNodeResponse getInstance(UnmarshallerContext context) {
+		return	UpdatePolarDBXInstanceNodeResponseUnmarshaller.unmarshall(this, context);
 	}
 
 	@Override

@@ -14,17 +14,16 @@
 
 package com.aliyuncs.v5.polardbx.transform.v20200202;
 
-import com.aliyuncs.v5.polardbx.model.v20200202.ModifyDBInstanceClassResponse;
+import com.aliyuncs.v5.polardbx.model.v20200202.RetryPolarxOrderResponse;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 
-public class ModifyDBInstanceClassResponseUnmarshaller {
+public class RetryPolarxOrderResponseUnmarshaller {
 
-	public static ModifyDBInstanceClassResponse unmarshall(ModifyDBInstanceClassResponse modifyDBInstanceClassResponse, UnmarshallerContext _ctx) {
+	public static RetryPolarxOrderResponse unmarshall(RetryPolarxOrderResponse retryPolarxOrderResponse, UnmarshallerContext _ctx) {
 		
-		modifyDBInstanceClassResponse.setRequestId(_ctx.stringValue("ModifyDBInstanceClassResponse.RequestId"));
-		modifyDBInstanceClassResponse.setOrderId(_ctx.stringValue("ModifyDBInstanceClassResponse.OrderId"));
+		retryPolarxOrderResponse.setRequestId(_ctx.stringValue("RetryPolarxOrderResponse.RequestId"));
 	 
-	 	return modifyDBInstanceClassResponse;
+	 	return retryPolarxOrderResponse;
 	}
 }
