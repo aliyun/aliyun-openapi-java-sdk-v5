@@ -15,6 +15,7 @@
 package com.aliyuncs.v5.iot.model.v20180120;
 
 import com.aliyuncs.v5.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.v5.http.MethodType;
 import com.aliyuncs.v5.iot.Endpoint;
 
@@ -22,21 +23,49 @@ import com.aliyuncs.v5.iot.Endpoint;
  * @author auto create
  * @version 
  */
-public class QueryThingModelExtendConfigPublishedRequest extends RpcAcsRequest<QueryThingModelExtendConfigPublishedResponse> {
+public class BatchPubRequest extends RpcAcsRequest<BatchPubResponse> {
 	   
+
+	private String messageContent;
+
+	private Integer qos;
 
 	private String iotInstanceId;
 
+	private String topicShortName;
+
 	private String productKey;
 
-	private String modelVersion;
-	public QueryThingModelExtendConfigPublishedRequest() {
-		super("Iot", "2018-01-20", "QueryThingModelExtendConfigPublished", "iot");
+	private List<String> deviceName;
+	public BatchPubRequest() {
+		super("Iot", "2018-01-20", "BatchPub", "iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getMessageContent() {
+		return this.messageContent;
+	}
+
+	public void setMessageContent(String messageContent) {
+		this.messageContent = messageContent;
+		if(messageContent != null){
+			putQueryParameter("MessageContent", messageContent);
+		}
+	}
+
+	public Integer getQos() {
+		return this.qos;
+	}
+
+	public void setQos(Integer qos) {
+		this.qos = qos;
+		if(qos != null){
+			putQueryParameter("Qos", qos.toString());
+		}
 	}
 
 	public String getIotInstanceId() {
@@ -47,6 +76,17 @@ public class QueryThingModelExtendConfigPublishedRequest extends RpcAcsRequest<Q
 		this.iotInstanceId = iotInstanceId;
 		if(iotInstanceId != null){
 			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getTopicShortName() {
+		return this.topicShortName;
+	}
+
+	public void setTopicShortName(String topicShortName) {
+		this.topicShortName = topicShortName;
+		if(topicShortName != null){
+			putQueryParameter("TopicShortName", topicShortName);
 		}
 	}
 
@@ -61,20 +101,22 @@ public class QueryThingModelExtendConfigPublishedRequest extends RpcAcsRequest<Q
 		}
 	}
 
-	public String getModelVersion() {
-		return this.modelVersion;
+	public List<String> getDeviceName() {
+		return this.deviceName;
 	}
 
-	public void setModelVersion(String modelVersion) {
-		this.modelVersion = modelVersion;
-		if(modelVersion != null){
-			putQueryParameter("ModelVersion", modelVersion);
-		}
+	public void setDeviceName(List<String> deviceName) {
+		this.deviceName = deviceName;	
+		if (deviceName != null) {
+			for (int i = 0; i < deviceName.size(); i++) {
+				putQueryParameter("DeviceName." + (i + 1) , deviceName.get(i));
+			}
+		}	
 	}
 
 	@Override
-	public Class<QueryThingModelExtendConfigPublishedResponse> getResponseClass() {
-		return QueryThingModelExtendConfigPublishedResponse.class;
+	public Class<BatchPubResponse> getResponseClass() {
+		return BatchPubResponse.class;
 	}
 
 }

@@ -15,6 +15,7 @@
 package com.aliyuncs.v5.iot.model.v20180120;
 
 import com.aliyuncs.v5.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.v5.http.MethodType;
 import com.aliyuncs.v5.iot.Endpoint;
 
@@ -22,16 +23,18 @@ import com.aliyuncs.v5.iot.Endpoint;
  * @author auto create
  * @version 
  */
-public class QueryThingModelExtendConfigPublishedRequest extends RpcAcsRequest<QueryThingModelExtendConfigPublishedResponse> {
+public class SpeechByCombinationRequest extends RpcAcsRequest<SpeechByCombinationResponse> {
 	   
 
-	private String iotInstanceId;
+	private String iotId;
+
+	private List<String> combinationList;
 
 	private String productKey;
 
-	private String modelVersion;
-	public QueryThingModelExtendConfigPublishedRequest() {
-		super("Iot", "2018-01-20", "QueryThingModelExtendConfigPublished", "iot");
+	private String deviceName;
+	public SpeechByCombinationRequest() {
+		super("Iot", "2018-01-20", "SpeechByCombination", "iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -39,15 +42,28 @@ public class QueryThingModelExtendConfigPublishedRequest extends RpcAcsRequest<Q
 		} catch (Exception e) {}
 	}
 
-	public String getIotInstanceId() {
-		return this.iotInstanceId;
+	public String getIotId() {
+		return this.iotId;
 	}
 
-	public void setIotInstanceId(String iotInstanceId) {
-		this.iotInstanceId = iotInstanceId;
-		if(iotInstanceId != null){
-			putQueryParameter("IotInstanceId", iotInstanceId);
+	public void setIotId(String iotId) {
+		this.iotId = iotId;
+		if(iotId != null){
+			putBodyParameter("IotId", iotId);
 		}
+	}
+
+	public List<String> getCombinationList() {
+		return this.combinationList;
+	}
+
+	public void setCombinationList(List<String> combinationList) {
+		this.combinationList = combinationList;	
+		if (combinationList != null) {
+			for (int i = 0; i < combinationList.size(); i++) {
+				putBodyParameter("CombinationList." + (i + 1) , combinationList.get(i));
+			}
+		}	
 	}
 
 	public String getProductKey() {
@@ -57,24 +73,24 @@ public class QueryThingModelExtendConfigPublishedRequest extends RpcAcsRequest<Q
 	public void setProductKey(String productKey) {
 		this.productKey = productKey;
 		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
+			putBodyParameter("ProductKey", productKey);
 		}
 	}
 
-	public String getModelVersion() {
-		return this.modelVersion;
+	public String getDeviceName() {
+		return this.deviceName;
 	}
 
-	public void setModelVersion(String modelVersion) {
-		this.modelVersion = modelVersion;
-		if(modelVersion != null){
-			putQueryParameter("ModelVersion", modelVersion);
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putBodyParameter("DeviceName", deviceName);
 		}
 	}
 
 	@Override
-	public Class<QueryThingModelExtendConfigPublishedResponse> getResponseClass() {
-		return QueryThingModelExtendConfigPublishedResponse.class;
+	public Class<SpeechByCombinationResponse> getResponseClass() {
+		return SpeechByCombinationResponse.class;
 	}
 
 }

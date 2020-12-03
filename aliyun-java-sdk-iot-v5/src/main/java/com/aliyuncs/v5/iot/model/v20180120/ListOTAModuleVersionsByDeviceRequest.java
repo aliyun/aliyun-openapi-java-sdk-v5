@@ -22,21 +22,38 @@ import com.aliyuncs.v5.iot.Endpoint;
  * @author auto create
  * @version 
  */
-public class QueryThingModelExtendConfigPublishedRequest extends RpcAcsRequest<QueryThingModelExtendConfigPublishedResponse> {
+public class ListOTAModuleVersionsByDeviceRequest extends RpcAcsRequest<ListOTAModuleVersionsByDeviceResponse> {
 	   
+
+	private String iotId;
 
 	private String iotInstanceId;
 
+	private Integer pageSize;
+
+	private Integer currentPage;
+
 	private String productKey;
 
-	private String modelVersion;
-	public QueryThingModelExtendConfigPublishedRequest() {
-		super("Iot", "2018-01-20", "QueryThingModelExtendConfigPublished", "iot");
+	private String deviceName;
+	public ListOTAModuleVersionsByDeviceRequest() {
+		super("Iot", "2018-01-20", "ListOTAModuleVersionsByDevice", "iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
+	}
+
+	public String getIotId() {
+		return this.iotId;
+	}
+
+	public void setIotId(String iotId) {
+		this.iotId = iotId;
+		if(iotId != null){
+			putQueryParameter("IotId", iotId);
+		}
 	}
 
 	public String getIotInstanceId() {
@@ -47,6 +64,28 @@ public class QueryThingModelExtendConfigPublishedRequest extends RpcAcsRequest<Q
 		this.iotInstanceId = iotInstanceId;
 		if(iotInstanceId != null){
 			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public Integer getCurrentPage() {
+		return this.currentPage;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+		if(currentPage != null){
+			putQueryParameter("CurrentPage", currentPage.toString());
 		}
 	}
 
@@ -61,20 +100,20 @@ public class QueryThingModelExtendConfigPublishedRequest extends RpcAcsRequest<Q
 		}
 	}
 
-	public String getModelVersion() {
-		return this.modelVersion;
+	public String getDeviceName() {
+		return this.deviceName;
 	}
 
-	public void setModelVersion(String modelVersion) {
-		this.modelVersion = modelVersion;
-		if(modelVersion != null){
-			putQueryParameter("ModelVersion", modelVersion);
+	public void setDeviceName(String deviceName) {
+		this.deviceName = deviceName;
+		if(deviceName != null){
+			putQueryParameter("DeviceName", deviceName);
 		}
 	}
 
 	@Override
-	public Class<QueryThingModelExtendConfigPublishedResponse> getResponseClass() {
-		return QueryThingModelExtendConfigPublishedResponse.class;
+	public Class<ListOTAModuleVersionsByDeviceResponse> getResponseClass() {
+		return ListOTAModuleVersionsByDeviceResponse.class;
 	}
 
 }

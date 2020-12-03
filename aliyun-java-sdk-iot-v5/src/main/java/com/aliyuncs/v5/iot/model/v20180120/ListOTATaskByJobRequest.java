@@ -15,6 +15,7 @@
 package com.aliyuncs.v5.iot.model.v20180120;
 
 import com.aliyuncs.v5.RpcAcsRequest;
+import java.util.List;
 import com.aliyuncs.v5.http.MethodType;
 import com.aliyuncs.v5.iot.Endpoint;
 
@@ -32,6 +33,8 @@ public class ListOTATaskByJobRequest extends RpcAcsRequest<ListOTATaskByJobRespo
 	private String iotInstanceId;
 
 	private Integer pageSize;
+
+	private List<String> deviceNames;
 
 	private Integer currentPage;
 	public ListOTATaskByJobRequest() {
@@ -85,6 +88,19 @@ public class ListOTATaskByJobRequest extends RpcAcsRequest<ListOTATaskByJobRespo
 		if(pageSize != null){
 			putQueryParameter("PageSize", pageSize.toString());
 		}
+	}
+
+	public List<String> getDeviceNames() {
+		return this.deviceNames;
+	}
+
+	public void setDeviceNames(List<String> deviceNames) {
+		this.deviceNames = deviceNames;	
+		if (deviceNames != null) {
+			for (int i = 0; i < deviceNames.size(); i++) {
+				putQueryParameter("DeviceNames." + (i + 1) , deviceNames.get(i));
+			}
+		}	
 	}
 
 	public Integer getCurrentPage() {
