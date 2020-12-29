@@ -15,16 +15,18 @@
 package com.aliyuncs.v5.openanalytics_open.model.v20180619;
 
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.openanalytics_open.transform.v20180619.StopVirtualClusterResponseUnmarshaller;
+import com.aliyuncs.v5.openanalytics_open.transform.v20180619.ValidateVirtualClusterNameResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class StopVirtualClusterResponse extends AcsResponse {
+public class ValidateVirtualClusterNameResponse extends AcsResponse {
 
 	private String requestId;
+
+	private Data data;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -34,9 +36,40 @@ public class StopVirtualClusterResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
+	public Data getData() {
+		return this.data;
+	}
+
+	public void setData(Data data) {
+		this.data = data;
+	}
+
+	public static class Data {
+
+		private String legal;
+
+		private String message;
+
+		public String getLegal() {
+			return this.legal;
+		}
+
+		public void setLegal(String legal) {
+			this.legal = legal;
+		}
+
+		public String getMessage() {
+			return this.message;
+		}
+
+		public void setMessage(String message) {
+			this.message = message;
+		}
+	}
+
 	@Override
-	public StopVirtualClusterResponse getInstance(UnmarshallerContext context) {
-		return	StopVirtualClusterResponseUnmarshaller.unmarshall(this, context);
+	public ValidateVirtualClusterNameResponse getInstance(UnmarshallerContext context) {
+		return	ValidateVirtualClusterNameResponseUnmarshaller.unmarshall(this, context);
 	}
 
 	@Override

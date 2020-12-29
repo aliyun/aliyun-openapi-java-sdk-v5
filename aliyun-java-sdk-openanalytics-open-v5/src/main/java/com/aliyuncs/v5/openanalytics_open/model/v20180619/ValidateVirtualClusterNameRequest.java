@@ -22,10 +22,12 @@ import com.aliyuncs.v5.openanalytics_open.Endpoint;
  * @author auto create
  * @version 
  */
-public class QueryDataSourceDefRequest extends RpcAcsRequest<QueryDataSourceDefResponse> {
+public class ValidateVirtualClusterNameRequest extends RpcAcsRequest<ValidateVirtualClusterNameResponse> {
 	   
-	public QueryDataSourceDefRequest() {
-		super("openanalytics-open", "2018-06-19", "QueryDataSourceDef", "openanalytics");
+
+	private String vcName;
+	public ValidateVirtualClusterNameRequest() {
+		super("openanalytics-open", "2018-06-19", "ValidateVirtualClusterName", "openanalytics");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -33,9 +35,20 @@ public class QueryDataSourceDefRequest extends RpcAcsRequest<QueryDataSourceDefR
 		} catch (Exception e) {}
 	}
 
+	public String getVcName() {
+		return this.vcName;
+	}
+
+	public void setVcName(String vcName) {
+		this.vcName = vcName;
+		if(vcName != null){
+			putBodyParameter("VcName", vcName);
+		}
+	}
+
 	@Override
-	public Class<QueryDataSourceDefResponse> getResponseClass() {
-		return QueryDataSourceDefResponse.class;
+	public Class<ValidateVirtualClusterNameResponse> getResponseClass() {
+		return ValidateVirtualClusterNameResponse.class;
 	}
 
 }
