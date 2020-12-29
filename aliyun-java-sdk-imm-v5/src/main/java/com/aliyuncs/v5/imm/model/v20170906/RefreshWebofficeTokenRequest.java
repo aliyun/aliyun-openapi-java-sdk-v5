@@ -21,16 +21,16 @@ import com.aliyuncs.v5.http.MethodType;
  * @author auto create
  * @version 
  */
-public class DetectImageCelebrityRequest extends RpcAcsRequest<DetectImageCelebrityResponse> {
+public class RefreshWebofficeTokenRequest extends RpcAcsRequest<RefreshWebofficeTokenResponse> {
 	   
 
 	private String project;
 
-	private String library;
+	private String accessToken;
 
-	private String imageUri;
-	public DetectImageCelebrityRequest() {
-		super("imm", "2017-09-06", "DetectImageCelebrity", "imm");
+	private String refreshToken;
+	public RefreshWebofficeTokenRequest() {
+		super("imm", "2017-09-06", "RefreshWebofficeToken", "imm");
 		setMethod(MethodType.POST);
 	}
 
@@ -45,31 +45,31 @@ public class DetectImageCelebrityRequest extends RpcAcsRequest<DetectImageCelebr
 		}
 	}
 
-	public String getLibrary() {
-		return this.library;
+	public String getAccessToken() {
+		return this.accessToken;
 	}
 
-	public void setLibrary(String library) {
-		this.library = library;
-		if(library != null){
-			putQueryParameter("Library", library);
+	public void setAccessToken(String accessToken) {
+		this.accessToken = accessToken;
+		if(accessToken != null){
+			putQueryParameter("AccessToken", accessToken);
 		}
 	}
 
-	public String getImageUri() {
-		return this.imageUri;
+	public String getRefreshToken() {
+		return this.refreshToken;
 	}
 
-	public void setImageUri(String imageUri) {
-		this.imageUri = imageUri;
-		if(imageUri != null){
-			putQueryParameter("ImageUri", imageUri);
+	public void setRefreshToken(String refreshToken) {
+		this.refreshToken = refreshToken;
+		if(refreshToken != null){
+			putQueryParameter("RefreshToken", refreshToken);
 		}
 	}
 
 	@Override
-	public Class<DetectImageCelebrityResponse> getResponseClass() {
-		return DetectImageCelebrityResponse.class;
+	public Class<RefreshWebofficeTokenResponse> getResponseClass() {
+		return RefreshWebofficeTokenResponse.class;
 	}
 
 }

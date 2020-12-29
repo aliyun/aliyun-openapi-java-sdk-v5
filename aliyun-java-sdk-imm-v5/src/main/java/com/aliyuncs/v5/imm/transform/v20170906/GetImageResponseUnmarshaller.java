@@ -19,8 +19,6 @@ import java.util.List;
 
 import com.aliyuncs.v5.imm.model.v20170906.GetImageResponse;
 import com.aliyuncs.v5.imm.model.v20170906.GetImageResponse.Address;
-import com.aliyuncs.v5.imm.model.v20170906.GetImageResponse.CelebrityItem;
-import com.aliyuncs.v5.imm.model.v20170906.GetImageResponse.CelebrityItem.CelebrityBoundary;
 import com.aliyuncs.v5.imm.model.v20170906.GetImageResponse.CroppingSuggestionItem;
 import com.aliyuncs.v5.imm.model.v20170906.GetImageResponse.CroppingSuggestionItem.CroppingBoundary;
 import com.aliyuncs.v5.imm.model.v20170906.GetImageResponse.FacesItem;
@@ -65,9 +63,6 @@ public class GetImageResponseUnmarshaller {
 		getImageResponse.setFacesFailReason(_ctx.stringValue("GetImageResponse.FacesFailReason"));
 		getImageResponse.setTagsFailReason(_ctx.stringValue("GetImageResponse.TagsFailReason"));
 		getImageResponse.setTagsModifyTime(_ctx.stringValue("GetImageResponse.TagsModifyTime"));
-		getImageResponse.setCelebrityStatus(_ctx.stringValue("GetImageResponse.CelebrityStatus"));
-		getImageResponse.setCelebrityModifyTime(_ctx.stringValue("GetImageResponse.CelebrityModifyTime"));
-		getImageResponse.setCelebrityFailReason(_ctx.stringValue("GetImageResponse.CelebrityFailReason"));
 		getImageResponse.setTagsStatus(_ctx.stringValue("GetImageResponse.TagsStatus"));
 		getImageResponse.setRemarksC(_ctx.stringValue("GetImageResponse.RemarksC"));
 		getImageResponse.setRemarksD(_ctx.stringValue("GetImageResponse.RemarksD"));
@@ -140,11 +135,9 @@ public class GetImageResponseUnmarshaller {
 			FaceAttributes faceAttributes = new FaceAttributes();
 			faceAttributes.setGlasses(_ctx.stringValue("GetImageResponse.Faces["+ i +"].FaceAttributes.Glasses"));
 			faceAttributes.setBeard(_ctx.stringValue("GetImageResponse.Faces["+ i +"].FaceAttributes.Beard"));
-			faceAttributes.setRace(_ctx.stringValue("GetImageResponse.Faces["+ i +"].FaceAttributes.Race"));
 			faceAttributes.setMask(_ctx.stringValue("GetImageResponse.Faces["+ i +"].FaceAttributes.Mask"));
 			faceAttributes.setGlassesConfidence(_ctx.floatValue("GetImageResponse.Faces["+ i +"].FaceAttributes.GlassesConfidence"));
 			faceAttributes.setBeardConfidence(_ctx.floatValue("GetImageResponse.Faces["+ i +"].FaceAttributes.BeardConfidence"));
-			faceAttributes.setRaceConfidence(_ctx.floatValue("GetImageResponse.Faces["+ i +"].FaceAttributes.RaceConfidence"));
 			faceAttributes.setMaskConfidence(_ctx.floatValue("GetImageResponse.Faces["+ i +"].FaceAttributes.MaskConfidence"));
 
 			FaceBoundary faceBoundary = new FaceBoundary();
@@ -203,25 +196,6 @@ public class GetImageResponseUnmarshaller {
 			tagsList.add(tagsItem);
 		}
 		getImageResponse.setTags(tagsList);
-
-		List<CelebrityItem> celebrityList = new ArrayList<CelebrityItem>();
-		for (int i = 0; i < _ctx.lengthValue("GetImageResponse.Celebrity.Length"); i++) {
-			CelebrityItem celebrityItem = new CelebrityItem();
-			celebrityItem.setCelebrityName(_ctx.stringValue("GetImageResponse.Celebrity["+ i +"].CelebrityName"));
-			celebrityItem.setCelebrityGender(_ctx.stringValue("GetImageResponse.Celebrity["+ i +"].CelebrityGender"));
-			celebrityItem.setCelebrityConfidence(_ctx.floatValue("GetImageResponse.Celebrity["+ i +"].CelebrityConfidence"));
-			celebrityItem.setCelebrityLibraryName(_ctx.stringValue("GetImageResponse.Celebrity["+ i +"].CelebrityLibraryName"));
-
-			CelebrityBoundary celebrityBoundary = new CelebrityBoundary();
-			celebrityBoundary.setLeft(_ctx.integerValue("GetImageResponse.Celebrity["+ i +"].CelebrityBoundary.Left"));
-			celebrityBoundary.setTop(_ctx.integerValue("GetImageResponse.Celebrity["+ i +"].CelebrityBoundary.Top"));
-			celebrityBoundary.setWidth(_ctx.integerValue("GetImageResponse.Celebrity["+ i +"].CelebrityBoundary.Width"));
-			celebrityBoundary.setHeight(_ctx.integerValue("GetImageResponse.Celebrity["+ i +"].CelebrityBoundary.Height"));
-			celebrityItem.setCelebrityBoundary(celebrityBoundary);
-
-			celebrityList.add(celebrityItem);
-		}
-		getImageResponse.setCelebrity(celebrityList);
 	 
 	 	return getImageResponse;
 	}
