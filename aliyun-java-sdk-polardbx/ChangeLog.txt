@@ -6,6 +6,10 @@
 - Supported all language sdk.
 - Fixed some bugs for polardbx.
 
+2020-12-29 Version: 1.1.0
+- Supported all language sdk.
+- Fixed some bugs for polardbx.
+
 2020-12-29 Version: 2020-11-27
 - Supported all language sdk.
 - Fixed some bugs for polardbx.
