@@ -1,6 +1,9 @@
 2021-01-11 Version: 1.19.1
 - Support feedback.
 
+2021-01-11 Version: 1.19.1
+- Support feedback.
+
 2020-12-29 Version: 1.19.2
 - Support drm.
 
