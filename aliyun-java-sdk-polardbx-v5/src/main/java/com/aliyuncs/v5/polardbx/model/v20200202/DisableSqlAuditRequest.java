@@ -16,7 +16,6 @@ package com.aliyuncs.v5.polardbx.model.v20200202;
 
 import com.aliyuncs.v5.RpcAcsRequest;
 import com.aliyuncs.v5.http.MethodType;
-import com.aliyuncs.v5.polardbx.Endpoint;
 
 /**
  * @author auto create
@@ -29,10 +28,6 @@ public class DisableSqlAuditRequest extends RpcAcsRequest<DisableSqlAuditRespons
 	public DisableSqlAuditRequest() {
 		super("polardbx", "2020-02-02", "DisableSqlAudit", "polardbx");
 		setMethod(MethodType.POST);
-		try {
-			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
-			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
-		} catch (Exception e) {}
 	}
 
 	public String getDBInstanceId() {
