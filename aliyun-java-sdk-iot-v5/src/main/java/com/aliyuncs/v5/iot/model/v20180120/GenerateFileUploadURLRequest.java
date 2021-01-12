@@ -22,20 +22,16 @@ import com.aliyuncs.v5.iot.Endpoint;
  * @author auto create
  * @version 
  */
-public class QueryDevicePropertyStatusRequest extends RpcAcsRequest<QueryDevicePropertyStatusResponse> {
+public class GenerateFileUploadURLRequest extends RpcAcsRequest<GenerateFileUploadURLResponse> {
 	   
 
-	private String iotId;
+	private String fileSuffix;
 
 	private String iotInstanceId;
 
-	private String productKey;
-
-	private String deviceName;
-
-	private String functionBlockId;
-	public QueryDevicePropertyStatusRequest() {
-		super("Iot", "2018-01-20", "QueryDevicePropertyStatus", "iot");
+	private String bizCode;
+	public GenerateFileUploadURLRequest() {
+		super("Iot", "2018-01-20", "GenerateFileUploadURL", "iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -43,14 +39,14 @@ public class QueryDevicePropertyStatusRequest extends RpcAcsRequest<QueryDeviceP
 		} catch (Exception e) {}
 	}
 
-	public String getIotId() {
-		return this.iotId;
+	public String getFileSuffix() {
+		return this.fileSuffix;
 	}
 
-	public void setIotId(String iotId) {
-		this.iotId = iotId;
-		if(iotId != null){
-			putQueryParameter("IotId", iotId);
+	public void setFileSuffix(String fileSuffix) {
+		this.fileSuffix = fileSuffix;
+		if(fileSuffix != null){
+			putQueryParameter("FileSuffix", fileSuffix);
 		}
 	}
 
@@ -65,42 +61,20 @@ public class QueryDevicePropertyStatusRequest extends RpcAcsRequest<QueryDeviceP
 		}
 	}
 
-	public String getProductKey() {
-		return this.productKey;
+	public String getBizCode() {
+		return this.bizCode;
 	}
 
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
-	}
-
-	public String getDeviceName() {
-		return this.deviceName;
-	}
-
-	public void setDeviceName(String deviceName) {
-		this.deviceName = deviceName;
-		if(deviceName != null){
-			putQueryParameter("DeviceName", deviceName);
-		}
-	}
-
-	public String getFunctionBlockId() {
-		return this.functionBlockId;
-	}
-
-	public void setFunctionBlockId(String functionBlockId) {
-		this.functionBlockId = functionBlockId;
-		if(functionBlockId != null){
-			putQueryParameter("FunctionBlockId", functionBlockId);
+	public void setBizCode(String bizCode) {
+		this.bizCode = bizCode;
+		if(bizCode != null){
+			putQueryParameter("BizCode", bizCode);
 		}
 	}
 
 	@Override
-	public Class<QueryDevicePropertyStatusResponse> getResponseClass() {
-		return QueryDevicePropertyStatusResponse.class;
+	public Class<GenerateFileUploadURLResponse> getResponseClass() {
+		return GenerateFileUploadURLResponse.class;
 	}
 
 }

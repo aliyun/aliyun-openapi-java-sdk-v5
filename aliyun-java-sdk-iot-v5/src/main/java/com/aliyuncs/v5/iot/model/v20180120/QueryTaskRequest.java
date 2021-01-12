@@ -22,36 +22,19 @@ import com.aliyuncs.v5.iot.Endpoint;
  * @author auto create
  * @version 
  */
-public class QueryDevicePropertyStatusRequest extends RpcAcsRequest<QueryDevicePropertyStatusResponse> {
+public class QueryTaskRequest extends RpcAcsRequest<QueryTaskResponse> {
 	   
-
-	private String iotId;
 
 	private String iotInstanceId;
 
-	private String productKey;
-
-	private String deviceName;
-
-	private String functionBlockId;
-	public QueryDevicePropertyStatusRequest() {
-		super("Iot", "2018-01-20", "QueryDevicePropertyStatus", "iot");
+	private String taskId;
+	public QueryTaskRequest() {
+		super("Iot", "2018-01-20", "QueryTask", "iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
 		} catch (Exception e) {}
-	}
-
-	public String getIotId() {
-		return this.iotId;
-	}
-
-	public void setIotId(String iotId) {
-		this.iotId = iotId;
-		if(iotId != null){
-			putQueryParameter("IotId", iotId);
-		}
 	}
 
 	public String getIotInstanceId() {
@@ -65,42 +48,20 @@ public class QueryDevicePropertyStatusRequest extends RpcAcsRequest<QueryDeviceP
 		}
 	}
 
-	public String getProductKey() {
-		return this.productKey;
+	public String getTaskId() {
+		return this.taskId;
 	}
 
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
-		}
-	}
-
-	public String getDeviceName() {
-		return this.deviceName;
-	}
-
-	public void setDeviceName(String deviceName) {
-		this.deviceName = deviceName;
-		if(deviceName != null){
-			putQueryParameter("DeviceName", deviceName);
-		}
-	}
-
-	public String getFunctionBlockId() {
-		return this.functionBlockId;
-	}
-
-	public void setFunctionBlockId(String functionBlockId) {
-		this.functionBlockId = functionBlockId;
-		if(functionBlockId != null){
-			putQueryParameter("FunctionBlockId", functionBlockId);
+	public void setTaskId(String taskId) {
+		this.taskId = taskId;
+		if(taskId != null){
+			putQueryParameter("TaskId", taskId);
 		}
 	}
 
 	@Override
-	public Class<QueryDevicePropertyStatusResponse> getResponseClass() {
-		return QueryDevicePropertyStatusResponse.class;
+	public Class<QueryTaskResponse> getResponseClass() {
+		return QueryTaskResponse.class;
 	}
 
 }

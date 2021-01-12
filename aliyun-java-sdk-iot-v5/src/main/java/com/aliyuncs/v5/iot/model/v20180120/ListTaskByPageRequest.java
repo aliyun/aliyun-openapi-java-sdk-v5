@@ -22,20 +22,26 @@ import com.aliyuncs.v5.iot.Endpoint;
  * @author auto create
  * @version 
  */
-public class QueryDevicePropertyStatusRequest extends RpcAcsRequest<QueryDevicePropertyStatusResponse> {
+public class ListTaskByPageRequest extends RpcAcsRequest<ListTaskByPageResponse> {
 	   
 
-	private String iotId;
+	private String jobId;
 
 	private String iotInstanceId;
 
-	private String productKey;
+	private String pageSize;
+
+	private String jobName;
+
+	private String pageNo;
 
 	private String deviceName;
 
-	private String functionBlockId;
-	public QueryDevicePropertyStatusRequest() {
-		super("Iot", "2018-01-20", "QueryDevicePropertyStatus", "iot");
+	private String device;
+
+	private String status;
+	public ListTaskByPageRequest() {
+		super("Iot", "2018-01-20", "ListTaskByPage", "iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -43,14 +49,14 @@ public class QueryDevicePropertyStatusRequest extends RpcAcsRequest<QueryDeviceP
 		} catch (Exception e) {}
 	}
 
-	public String getIotId() {
-		return this.iotId;
+	public String getJobId() {
+		return this.jobId;
 	}
 
-	public void setIotId(String iotId) {
-		this.iotId = iotId;
-		if(iotId != null){
-			putQueryParameter("IotId", iotId);
+	public void setJobId(String jobId) {
+		this.jobId = jobId;
+		if(jobId != null){
+			putQueryParameter("JobId", jobId);
 		}
 	}
 
@@ -65,14 +71,36 @@ public class QueryDevicePropertyStatusRequest extends RpcAcsRequest<QueryDeviceP
 		}
 	}
 
-	public String getProductKey() {
-		return this.productKey;
+	public String getPageSize() {
+		return this.pageSize;
 	}
 
-	public void setProductKey(String productKey) {
-		this.productKey = productKey;
-		if(productKey != null){
-			putQueryParameter("ProductKey", productKey);
+	public void setPageSize(String pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize);
+		}
+	}
+
+	public String getJobName() {
+		return this.jobName;
+	}
+
+	public void setJobName(String jobName) {
+		this.jobName = jobName;
+		if(jobName != null){
+			putQueryParameter("JobName", jobName);
+		}
+	}
+
+	public String getPageNo() {
+		return this.pageNo;
+	}
+
+	public void setPageNo(String pageNo) {
+		this.pageNo = pageNo;
+		if(pageNo != null){
+			putQueryParameter("PageNo", pageNo);
 		}
 	}
 
@@ -87,20 +115,31 @@ public class QueryDevicePropertyStatusRequest extends RpcAcsRequest<QueryDeviceP
 		}
 	}
 
-	public String getFunctionBlockId() {
-		return this.functionBlockId;
+	public String getDevice() {
+		return this.device;
 	}
 
-	public void setFunctionBlockId(String functionBlockId) {
-		this.functionBlockId = functionBlockId;
-		if(functionBlockId != null){
-			putQueryParameter("FunctionBlockId", functionBlockId);
+	public void setDevice(String device) {
+		this.device = device;
+		if(device != null){
+			putQueryParameter("Device", device);
+		}
+	}
+
+	public String getStatus() {
+		return this.status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+		if(status != null){
+			putQueryParameter("Status", status);
 		}
 	}
 
 	@Override
-	public Class<QueryDevicePropertyStatusResponse> getResponseClass() {
-		return QueryDevicePropertyStatusResponse.class;
+	public Class<ListTaskByPageResponse> getResponseClass() {
+		return ListTaskByPageResponse.class;
 	}
 
 }
