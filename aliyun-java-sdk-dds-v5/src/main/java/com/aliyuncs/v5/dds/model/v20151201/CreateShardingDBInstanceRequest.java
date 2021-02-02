@@ -58,11 +58,11 @@ public class CreateShardingDBInstanceRequest extends RpcAcsRequest<CreateShardin
 
 	private Long ownerId;
 
-	private List<Mongos> mongos;
-
 	private String securityIPList;
 
 	private String vSwitchId;
+
+	private List<Mongos> mongos;
 
 	private String accountPassword;
 
@@ -136,6 +136,7 @@ public class CreateShardingDBInstanceRequest extends RpcAcsRequest<CreateShardin
 		this.replicaSet = replicaSet;	
 		if (replicaSet != null) {
 			for (int depth1 = 0; depth1 < replicaSet.size(); depth1++) {
+				putQueryParameter("ReplicaSet." + (depth1 + 1) + ".ReadonlyReplicas" , replicaSet.get(depth1).getReadonlyReplicas());
 				putQueryParameter("ReplicaSet." + (depth1 + 1) + ".Storage" , replicaSet.get(depth1).getStorage());
 				putQueryParameter("ReplicaSet." + (depth1 + 1) + ".Class" , replicaSet.get(depth1).get_Class());
 			}
@@ -266,19 +267,6 @@ public class CreateShardingDBInstanceRequest extends RpcAcsRequest<CreateShardin
 		}
 	}
 
-	public List<Mongos> getMongos() {
-		return this.mongos;
-	}
-
-	public void setMongos(List<Mongos> mongos) {
-		this.mongos = mongos;	
-		if (mongos != null) {
-			for (int depth1 = 0; depth1 < mongos.size(); depth1++) {
-				putQueryParameter("Mongos." + (depth1 + 1) + ".Class" , mongos.get(depth1).get_Class());
-			}
-		}	
-	}
-
 	public String getSecurityIPList() {
 		return this.securityIPList;
 	}
@@ -299,6 +287,19 @@ public class CreateShardingDBInstanceRequest extends RpcAcsRequest<CreateShardin
 		if(vSwitchId != null){
 			putQueryParameter("VSwitchId", vSwitchId);
 		}
+	}
+
+	public List<Mongos> getMongos() {
+		return this.mongos;
+	}
+
+	public void setMongos(List<Mongos> mongos) {
+		this.mongos = mongos;	
+		if (mongos != null) {
+			for (int depth1 = 0; depth1 < mongos.size(); depth1++) {
+				putQueryParameter("Mongos." + (depth1 + 1) + ".Class" , mongos.get(depth1).get_Class());
+			}
+		}	
 	}
 
 	public String getAccountPassword() {
@@ -369,9 +370,19 @@ public class CreateShardingDBInstanceRequest extends RpcAcsRequest<CreateShardin
 
 	public static class ReplicaSet {
 
+		private Integer readonlyReplicas;
+
 		private Integer storage;
 
 		private String _class;
+
+		public Integer getReadonlyReplicas() {
+			return this.readonlyReplicas;
+		}
+
+		public void setReadonlyReplicas(Integer readonlyReplicas) {
+			this.readonlyReplicas = readonlyReplicas;
+		}
 
 		public Integer getStorage() {
 			return this.storage;
