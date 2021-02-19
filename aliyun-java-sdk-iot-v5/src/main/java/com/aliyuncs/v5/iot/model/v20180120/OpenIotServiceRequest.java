@@ -22,14 +22,12 @@ import com.aliyuncs.v5.iot.Endpoint;
  * @author auto create
  * @version 
  */
-public class QueryClientIdsRequest extends RpcAcsRequest<QueryClientIdsResponse> {
+public class OpenIotServiceRequest extends RpcAcsRequest<OpenIotServiceResponse> {
 	   
 
-	private String iotId;
-
-	private String iotInstanceId;
-	public QueryClientIdsRequest() {
-		super("Iot", "2018-01-20", "QueryClientIds", "iot");
+	private Long ownerId;
+	public OpenIotServiceRequest() {
+		super("Iot", "2018-01-20", "OpenIotService", "iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -37,31 +35,20 @@ public class QueryClientIdsRequest extends RpcAcsRequest<QueryClientIdsResponse>
 		} catch (Exception e) {}
 	}
 
-	public String getIotId() {
-		return this.iotId;
+	public Long getOwnerId() {
+		return this.ownerId;
 	}
 
-	public void setIotId(String iotId) {
-		this.iotId = iotId;
-		if(iotId != null){
-			putQueryParameter("IotId", iotId);
-		}
-	}
-
-	public String getIotInstanceId() {
-		return this.iotInstanceId;
-	}
-
-	public void setIotInstanceId(String iotInstanceId) {
-		this.iotInstanceId = iotInstanceId;
-		if(iotInstanceId != null){
-			putQueryParameter("IotInstanceId", iotInstanceId);
+	public void setOwnerId(Long ownerId) {
+		this.ownerId = ownerId;
+		if(ownerId != null){
+			putQueryParameter("OwnerId", ownerId.toString());
 		}
 	}
 
 	@Override
-	public Class<QueryClientIdsResponse> getResponseClass() {
-		return QueryClientIdsResponse.class;
+	public Class<OpenIotServiceResponse> getResponseClass() {
+		return OpenIotServiceResponse.class;
 	}
 
 }

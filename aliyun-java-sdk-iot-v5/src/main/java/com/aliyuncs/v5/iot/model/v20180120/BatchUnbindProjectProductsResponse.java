@@ -15,14 +15,14 @@
 package com.aliyuncs.v5.iot.model.v20180120;
 
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.iot.transform.v20180120.DeleteClientIdsResponseUnmarshaller;
+import com.aliyuncs.v5.iot.transform.v20180120.BatchUnbindProjectProductsResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class DeleteClientIdsResponse extends AcsResponse {
+public class BatchUnbindProjectProductsResponse extends AcsResponse {
 
 	private String requestId;
 
@@ -31,6 +31,8 @@ public class DeleteClientIdsResponse extends AcsResponse {
 	private String code;
 
 	private String errorMessage;
+
+	private Boolean data;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -64,8 +66,16 @@ public class DeleteClientIdsResponse extends AcsResponse {
 		this.errorMessage = errorMessage;
 	}
 
+	public Boolean getData() {
+		return this.data;
+	}
+
+	public void setData(Boolean data) {
+		this.data = data;
+	}
+
 	@Override
-	public DeleteClientIdsResponse getInstance(UnmarshallerContext context) {
-		return	DeleteClientIdsResponseUnmarshaller.unmarshall(this, context);
+	public BatchUnbindProjectProductsResponse getInstance(UnmarshallerContext context) {
+		return	BatchUnbindProjectProductsResponseUnmarshaller.unmarshall(this, context);
 	}
 }

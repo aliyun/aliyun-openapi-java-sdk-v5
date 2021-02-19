@@ -14,16 +14,15 @@
 
 package com.aliyuncs.v5.iot.model.v20180120;
 
-import java.util.List;
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.iot.transform.v20180120.QueryClientIdsResponseUnmarshaller;
+import com.aliyuncs.v5.iot.transform.v20180120.CreateDeviceDistributeJobResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class QueryClientIdsResponse extends AcsResponse {
+public class CreateDeviceDistributeJobResponse extends AcsResponse {
 
 	private String requestId;
 
@@ -33,7 +32,7 @@ public class QueryClientIdsResponse extends AcsResponse {
 
 	private String errorMessage;
 
-	private Data data;
+	private String jobId;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -67,67 +66,16 @@ public class QueryClientIdsResponse extends AcsResponse {
 		this.errorMessage = errorMessage;
 	}
 
-	public Data getData() {
-		return this.data;
+	public String getJobId() {
+		return this.jobId;
 	}
 
-	public void setData(Data data) {
-		this.data = data;
-	}
-
-	public static class Data {
-
-		private String iotId;
-
-		private List<DynamicRegClientId> dynamicRegClientIds;
-
-		public String getIotId() {
-			return this.iotId;
-		}
-
-		public void setIotId(String iotId) {
-			this.iotId = iotId;
-		}
-
-		public List<DynamicRegClientId> getDynamicRegClientIds() {
-			return this.dynamicRegClientIds;
-		}
-
-		public void setDynamicRegClientIds(List<DynamicRegClientId> dynamicRegClientIds) {
-			this.dynamicRegClientIds = dynamicRegClientIds;
-		}
-
-		public static class DynamicRegClientId {
-
-			private String clientId;
-
-			private Long createTime;
-
-			public String getClientId() {
-				return this.clientId;
-			}
-
-			public void setClientId(String clientId) {
-				this.clientId = clientId;
-			}
-
-			public Long getCreateTime() {
-				return this.createTime;
-			}
-
-			public void setCreateTime(Long createTime) {
-				this.createTime = createTime;
-			}
-		}
+	public void setJobId(String jobId) {
+		this.jobId = jobId;
 	}
 
 	@Override
-	public QueryClientIdsResponse getInstance(UnmarshallerContext context) {
-		return	QueryClientIdsResponseUnmarshaller.unmarshall(this, context);
-	}
-
-	@Override
-	public boolean checkShowJsonItemName() {
-		return false;
+	public CreateDeviceDistributeJobResponse getInstance(UnmarshallerContext context) {
+		return	CreateDeviceDistributeJobResponseUnmarshaller.unmarshall(this, context);
 	}
 }

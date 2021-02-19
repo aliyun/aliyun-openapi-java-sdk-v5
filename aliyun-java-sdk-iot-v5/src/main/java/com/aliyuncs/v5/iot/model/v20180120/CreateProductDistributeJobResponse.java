@@ -15,14 +15,14 @@
 package com.aliyuncs.v5.iot.model.v20180120;
 
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.iot.transform.v20180120.TransformClientIdResponseUnmarshaller;
+import com.aliyuncs.v5.iot.transform.v20180120.CreateProductDistributeJobResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class TransformClientIdResponse extends AcsResponse {
+public class CreateProductDistributeJobResponse extends AcsResponse {
 
 	private String requestId;
 
@@ -31,6 +31,8 @@ public class TransformClientIdResponse extends AcsResponse {
 	private String code;
 
 	private String errorMessage;
+
+	private String jobId;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -64,8 +66,16 @@ public class TransformClientIdResponse extends AcsResponse {
 		this.errorMessage = errorMessage;
 	}
 
+	public String getJobId() {
+		return this.jobId;
+	}
+
+	public void setJobId(String jobId) {
+		this.jobId = jobId;
+	}
+
 	@Override
-	public TransformClientIdResponse getInstance(UnmarshallerContext context) {
-		return	TransformClientIdResponseUnmarshaller.unmarshall(this, context);
+	public CreateProductDistributeJobResponse getInstance(UnmarshallerContext context) {
+		return	CreateProductDistributeJobResponseUnmarshaller.unmarshall(this, context);
 	}
 }

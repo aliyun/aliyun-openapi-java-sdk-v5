@@ -15,7 +15,6 @@
 package com.aliyuncs.v5.iot.model.v20180120;
 
 import com.aliyuncs.v5.RpcAcsRequest;
-import java.util.List;
 import com.aliyuncs.v5.http.MethodType;
 import com.aliyuncs.v5.iot.Endpoint;
 
@@ -23,20 +22,22 @@ import com.aliyuncs.v5.iot.Endpoint;
  * @author auto create
  * @version 
  */
-public class SpeechByCombinationRequest extends RpcAcsRequest<SpeechByCombinationResponse> {
+public class ListDistributedDeviceRequest extends RpcAcsRequest<ListDistributedDeviceResponse> {
 	   
 
-	private String iotId;
+	private Integer pageSize;
 
-	private List<String> combinationList;
+	private String sourceInstanceId;
 
-	private String iotInstanceId;
+	private Integer currentPage;
 
 	private String productKey;
 
 	private String deviceName;
-	public SpeechByCombinationRequest() {
-		super("Iot", "2018-01-20", "SpeechByCombination", "iot");
+
+	private String targetUid;
+	public ListDistributedDeviceRequest() {
+		super("Iot", "2018-01-20", "ListDistributedDevice", "iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -44,38 +45,36 @@ public class SpeechByCombinationRequest extends RpcAcsRequest<SpeechByCombinatio
 		} catch (Exception e) {}
 	}
 
-	public String getIotId() {
-		return this.iotId;
+	public Integer getPageSize() {
+		return this.pageSize;
 	}
 
-	public void setIotId(String iotId) {
-		this.iotId = iotId;
-		if(iotId != null){
-			putBodyParameter("IotId", iotId);
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
-	public List<String> getCombinationList() {
-		return this.combinationList;
+	public String getSourceInstanceId() {
+		return this.sourceInstanceId;
 	}
 
-	public void setCombinationList(List<String> combinationList) {
-		this.combinationList = combinationList;	
-		if (combinationList != null) {
-			for (int i = 0; i < combinationList.size(); i++) {
-				putBodyParameter("CombinationList." + (i + 1) , combinationList.get(i));
-			}
-		}	
+	public void setSourceInstanceId(String sourceInstanceId) {
+		this.sourceInstanceId = sourceInstanceId;
+		if(sourceInstanceId != null){
+			putQueryParameter("SourceInstanceId", sourceInstanceId);
+		}
 	}
 
-	public String getIotInstanceId() {
-		return this.iotInstanceId;
+	public Integer getCurrentPage() {
+		return this.currentPage;
 	}
 
-	public void setIotInstanceId(String iotInstanceId) {
-		this.iotInstanceId = iotInstanceId;
-		if(iotInstanceId != null){
-			putBodyParameter("IotInstanceId", iotInstanceId);
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+		if(currentPage != null){
+			putQueryParameter("CurrentPage", currentPage.toString());
 		}
 	}
 
@@ -86,7 +85,7 @@ public class SpeechByCombinationRequest extends RpcAcsRequest<SpeechByCombinatio
 	public void setProductKey(String productKey) {
 		this.productKey = productKey;
 		if(productKey != null){
-			putBodyParameter("ProductKey", productKey);
+			putQueryParameter("ProductKey", productKey);
 		}
 	}
 
@@ -97,13 +96,24 @@ public class SpeechByCombinationRequest extends RpcAcsRequest<SpeechByCombinatio
 	public void setDeviceName(String deviceName) {
 		this.deviceName = deviceName;
 		if(deviceName != null){
-			putBodyParameter("DeviceName", deviceName);
+			putQueryParameter("DeviceName", deviceName);
+		}
+	}
+
+	public String getTargetUid() {
+		return this.targetUid;
+	}
+
+	public void setTargetUid(String targetUid) {
+		this.targetUid = targetUid;
+		if(targetUid != null){
+			putQueryParameter("TargetUid", targetUid);
 		}
 	}
 
 	@Override
-	public Class<SpeechByCombinationResponse> getResponseClass() {
-		return SpeechByCombinationResponse.class;
+	public Class<ListDistributedDeviceResponse> getResponseClass() {
+		return ListDistributedDeviceResponse.class;
 	}
 
 }

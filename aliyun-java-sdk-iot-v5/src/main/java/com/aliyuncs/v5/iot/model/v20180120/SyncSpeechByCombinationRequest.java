@@ -23,7 +23,7 @@ import com.aliyuncs.v5.iot.Endpoint;
  * @author auto create
  * @version 
  */
-public class SpeechByCombinationRequest extends RpcAcsRequest<SpeechByCombinationResponse> {
+public class SyncSpeechByCombinationRequest extends RpcAcsRequest<SyncSpeechByCombinationResponse> {
 	   
 
 	private String iotId;
@@ -35,8 +35,8 @@ public class SpeechByCombinationRequest extends RpcAcsRequest<SpeechByCombinatio
 	private String productKey;
 
 	private String deviceName;
-	public SpeechByCombinationRequest() {
-		super("Iot", "2018-01-20", "SpeechByCombination", "iot");
+	public SyncSpeechByCombinationRequest() {
+		super("Iot", "2018-01-20", "SyncSpeechByCombination", "iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -102,8 +102,8 @@ public class SpeechByCombinationRequest extends RpcAcsRequest<SpeechByCombinatio
 	}
 
 	@Override
-	public Class<SpeechByCombinationResponse> getResponseClass() {
-		return SpeechByCombinationResponse.class;
+	public Class<SyncSpeechByCombinationResponse> getResponseClass() {
+		return SyncSpeechByCombinationResponse.class;
 	}
 
 }
