@@ -14,19 +14,32 @@
 
 package com.aliyuncs.v5.polardbx.model.v20200202;
 
+import java.util.List;
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.polardbx.transform.v20200202.EnableSqlAuditResponseUnmarshaller;
+import com.aliyuncs.v5.polardbx.transform.v20200202.CreateBackupResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class EnableSqlAuditResponse extends AcsResponse {
+public class CreateBackupResponse extends AcsResponse {
+
+	private String message;
 
 	private String requestId;
 
 	private Boolean success;
+
+	private List<Account> data;
+
+	public String getMessage() {
+		return this.message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 
 	public String getRequestId() {
 		return this.requestId;
@@ -44,9 +57,30 @@ public class EnableSqlAuditResponse extends AcsResponse {
 		this.success = success;
 	}
 
+	public List<Account> getData() {
+		return this.data;
+	}
+
+	public void setData(List<Account> data) {
+		this.data = data;
+	}
+
+	public static class Account {
+
+		private Long backupSetId;
+
+		public Long getBackupSetId() {
+			return this.backupSetId;
+		}
+
+		public void setBackupSetId(Long backupSetId) {
+			this.backupSetId = backupSetId;
+		}
+	}
+
 	@Override
-	public EnableSqlAuditResponse getInstance(UnmarshallerContext context) {
-		return	EnableSqlAuditResponseUnmarshaller.unmarshall(this, context);
+	public CreateBackupResponse getInstance(UnmarshallerContext context) {
+		return	CreateBackupResponseUnmarshaller.unmarshall(this, context);
 	}
 
 	@Override

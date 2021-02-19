@@ -16,18 +16,23 @@ package com.aliyuncs.v5.polardbx.model.v20200202;
 
 import com.aliyuncs.v5.RpcAcsRequest;
 import com.aliyuncs.v5.http.MethodType;
+import com.aliyuncs.v5.polardbx.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
-public class DescribeCharacterSetRequest extends RpcAcsRequest<DescribeCharacterSetResponse> {
+public class DescribeBackupPolicyRequest extends RpcAcsRequest<DescribeBackupPolicyResponse> {
 	   
 
 	private String dBInstanceName;
-	public DescribeCharacterSetRequest() {
-		super("polardbx", "2020-02-02", "DescribeCharacterSet", "polardbx");
+	public DescribeBackupPolicyRequest() {
+		super("polardbx", "2020-02-02", "DescribeBackupPolicy", "polardbx");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getDBInstanceName() {
@@ -42,8 +47,8 @@ public class DescribeCharacterSetRequest extends RpcAcsRequest<DescribeCharacter
 	}
 
 	@Override
-	public Class<DescribeCharacterSetResponse> getResponseClass() {
-		return DescribeCharacterSetResponse.class;
+	public Class<DescribeBackupPolicyResponse> getResponseClass() {
+		return DescribeBackupPolicyResponse.class;
 	}
 
 }

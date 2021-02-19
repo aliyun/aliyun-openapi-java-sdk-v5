@@ -16,22 +16,25 @@ package com.aliyuncs.v5.polardbx.model.v20200202;
 
 import com.aliyuncs.v5.RpcAcsRequest;
 import com.aliyuncs.v5.http.MethodType;
+import com.aliyuncs.v5.polardbx.Endpoint;
 
 /**
  * @author auto create
  * @version 
  */
-public class ModifyDBInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyDBInstanceMaintainTimeResponse> {
+public class CreateBackupRequest extends RpcAcsRequest<CreateBackupResponse> {
 	   
 
 	private String dBInstanceName;
 
-	private String clientToken;
-
-	private String maintainTime;
-	public ModifyDBInstanceMaintainTimeRequest() {
-		super("polardbx", "2020-02-02", "ModifyDBInstanceMaintainTime", "polardbx");
+	private String backupType;
+	public CreateBackupRequest() {
+		super("polardbx", "2020-02-02", "CreateBackup", "polardbx");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getDBInstanceName() {
@@ -45,31 +48,20 @@ public class ModifyDBInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyDBI
 		}
 	}
 
-	public String getClientToken() {
-		return this.clientToken;
+	public String getBackupType() {
+		return this.backupType;
 	}
 
-	public void setClientToken(String clientToken) {
-		this.clientToken = clientToken;
-		if(clientToken != null){
-			putQueryParameter("ClientToken", clientToken);
-		}
-	}
-
-	public String getMaintainTime() {
-		return this.maintainTime;
-	}
-
-	public void setMaintainTime(String maintainTime) {
-		this.maintainTime = maintainTime;
-		if(maintainTime != null){
-			putQueryParameter("MaintainTime", maintainTime);
+	public void setBackupType(String backupType) {
+		this.backupType = backupType;
+		if(backupType != null){
+			putQueryParameter("BackupType", backupType);
 		}
 	}
 
 	@Override
-	public Class<ModifyDBInstanceMaintainTimeResponse> getResponseClass() {
-		return ModifyDBInstanceMaintainTimeResponse.class;
+	public Class<CreateBackupResponse> getResponseClass() {
+		return CreateBackupResponse.class;
 	}
 
 }

@@ -22,17 +22,21 @@ import com.aliyuncs.v5.polardbx.Endpoint;
  * @author auto create
  * @version 
  */
-public class ModifyDatabaseDescriptionRequest extends RpcAcsRequest<ModifyDatabaseDescriptionResponse> {
+public class DescribeBackupSetListRequest extends RpcAcsRequest<DescribeBackupSetListResponse> {
 	   
 
 	private String dBInstanceName;
 
-	private String dbName;
+	private Long endTime;
 
-	private String dbDescription;
-	public ModifyDatabaseDescriptionRequest() {
-		super("polardbx", "2020-02-02", "ModifyDatabaseDescription", "polardbx");
-		setMethod(MethodType.POST);
+	private Long startTime;
+
+	private Integer pageNumber;
+
+	private Integer pageSize;
+	public DescribeBackupSetListRequest() {
+		super("polardbx", "2020-02-02", "DescribeBackupSetList", "polardbx");
+		setMethod(MethodType.GET);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
@@ -50,31 +54,53 @@ public class ModifyDatabaseDescriptionRequest extends RpcAcsRequest<ModifyDataba
 		}
 	}
 
-	public String getDbName() {
-		return this.dbName;
+	public Long getEndTime() {
+		return this.endTime;
 	}
 
-	public void setDbName(String dbName) {
-		this.dbName = dbName;
-		if(dbName != null){
-			putQueryParameter("DbName", dbName);
+	public void setEndTime(Long endTime) {
+		this.endTime = endTime;
+		if(endTime != null){
+			putQueryParameter("EndTime", endTime.toString());
 		}
 	}
 
-	public String getDbDescription() {
-		return this.dbDescription;
+	public Long getStartTime() {
+		return this.startTime;
 	}
 
-	public void setDbDescription(String dbDescription) {
-		this.dbDescription = dbDescription;
-		if(dbDescription != null){
-			putQueryParameter("DbDescription", dbDescription);
+	public void setStartTime(Long startTime) {
+		this.startTime = startTime;
+		if(startTime != null){
+			putQueryParameter("StartTime", startTime.toString());
+		}
+	}
+
+	public Integer getPageNumber() {
+		return this.pageNumber;
+	}
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		if(pageNumber != null){
+			putQueryParameter("PageNumber", pageNumber.toString());
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
 		}
 	}
 
 	@Override
-	public Class<ModifyDatabaseDescriptionResponse> getResponseClass() {
-		return ModifyDatabaseDescriptionResponse.class;
+	public Class<DescribeBackupSetListResponse> getResponseClass() {
+		return DescribeBackupSetListResponse.class;
 	}
 
 }

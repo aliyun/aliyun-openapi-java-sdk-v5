@@ -119,6 +119,8 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 		private String type;
 
+		private String minorVersion;
+
 		private List<PolarDBXNode> nodes;
 
 		private List<String> readDBInstances;
@@ -289,6 +291,14 @@ public class DescribeDBInstancesResponse extends AcsResponse {
 
 		public void setType(String type) {
 			this.type = type;
+		}
+
+		public String getMinorVersion() {
+			return this.minorVersion;
+		}
+
+		public void setMinorVersion(String minorVersion) {
+			this.minorVersion = minorVersion;
 		}
 
 		public List<PolarDBXNode> getNodes() {

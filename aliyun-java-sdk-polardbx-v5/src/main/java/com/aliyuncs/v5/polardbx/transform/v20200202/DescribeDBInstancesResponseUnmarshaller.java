@@ -56,6 +56,7 @@ public class DescribeDBInstancesResponseUnmarshaller {
 			dBInstance.setStorageUsed(_ctx.integerValue("DescribeDBInstancesResponse.DBInstances["+ i +"].StorageUsed"));
 			dBInstance.setCommodityCode(_ctx.stringValue("DescribeDBInstancesResponse.DBInstances["+ i +"].CommodityCode"));
 			dBInstance.setType(_ctx.stringValue("DescribeDBInstancesResponse.DBInstances["+ i +"].Type"));
+			dBInstance.setMinorVersion(_ctx.stringValue("DescribeDBInstancesResponse.DBInstances["+ i +"].MinorVersion"));
 
 			List<String> readDBInstances = new ArrayList<String>();
 			for (int j = 0; j < _ctx.lengthValue("DescribeDBInstancesResponse.DBInstances["+ i +"].ReadDBInstances.Length"); j++) {
