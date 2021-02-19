@@ -1,3 +1,6 @@
+2021-02-19 Version: 1.0.0
+- Generated 2015-11-01 for `Market`.
+
 2021-01-11 Version: 1.0.0
 - Generated 2015-11-01 for `Market`.
 
