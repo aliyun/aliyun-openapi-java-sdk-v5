@@ -1,0 +1,4 @@
+2021-02-25 Version: 1.0.30
+- Support SLR by InitializeDbsServiceLinkedRole action.
+- Change DescribeIncrementBackupList and DescribeFullBackupList to Support Range filter.
+
