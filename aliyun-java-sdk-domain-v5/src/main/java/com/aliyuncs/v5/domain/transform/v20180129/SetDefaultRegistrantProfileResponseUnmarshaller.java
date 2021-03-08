@@ -12,19 +12,18 @@
  * limitations under the License.
  */
 
-package com.aliyuncs.v5.domain.transform.v20180208;
+package com.aliyuncs.v5.domain.transform.v20180129;
 
-import com.aliyuncs.v5.domain.model.v20180208.AcceptDemandResponse;
+import com.aliyuncs.v5.domain.model.v20180129.SetDefaultRegistrantProfileResponse;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 
-public class AcceptDemandResponseUnmarshaller {
+public class SetDefaultRegistrantProfileResponseUnmarshaller {
 
-	public static AcceptDemandResponse unmarshall(AcceptDemandResponse acceptDemandResponse, UnmarshallerContext _ctx) {
+	public static SetDefaultRegistrantProfileResponse unmarshall(SetDefaultRegistrantProfileResponse setDefaultRegistrantProfileResponse, UnmarshallerContext _ctx) {
 		
-		acceptDemandResponse.setRequestId(_ctx.stringValue("AcceptDemandResponse.RequestId"));
-		acceptDemandResponse.setBindUrl(_ctx.stringValue("AcceptDemandResponse.BindUrl"));
+		setDefaultRegistrantProfileResponse.setRequestId(_ctx.stringValue("SetDefaultRegistrantProfileResponse.RequestId"));
 	 
-	 	return acceptDemandResponse;
+	 	return setDefaultRegistrantProfileResponse;
 	}
 }

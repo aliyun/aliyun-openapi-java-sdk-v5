@@ -12,21 +12,21 @@
  * limitations under the License.
  */
 
-package com.aliyuncs.v5.domain.model.v20180208;
+package com.aliyuncs.v5.domain.model.v20180129;
 
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.domain.transform.v20180208.AcceptDemandResponseUnmarshaller;
+import com.aliyuncs.v5.domain.transform.v20180129.SaveRegistrantProfileRealNameVerificationResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class AcceptDemandResponse extends AcsResponse {
+public class SaveRegistrantProfileRealNameVerificationResponse extends AcsResponse {
 
 	private String requestId;
 
-	private String bindUrl;
+	private Long registrantProfileId;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -36,17 +36,17 @@ public class AcceptDemandResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getBindUrl() {
-		return this.bindUrl;
+	public Long getRegistrantProfileId() {
+		return this.registrantProfileId;
 	}
 
-	public void setBindUrl(String bindUrl) {
-		this.bindUrl = bindUrl;
+	public void setRegistrantProfileId(Long registrantProfileId) {
+		this.registrantProfileId = registrantProfileId;
 	}
 
 	@Override
-	public AcceptDemandResponse getInstance(UnmarshallerContext context) {
-		return	AcceptDemandResponseUnmarshaller.unmarshall(this, context);
+	public SaveRegistrantProfileRealNameVerificationResponse getInstance(UnmarshallerContext context) {
+		return	SaveRegistrantProfileRealNameVerificationResponseUnmarshaller.unmarshall(this, context);
 	}
 
 	@Override

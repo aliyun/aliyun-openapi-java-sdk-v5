@@ -12,21 +12,19 @@
  * limitations under the License.
  */
 
-package com.aliyuncs.v5.domain.model.v20180208;
+package com.aliyuncs.v5.domain.model.v20180129;
 
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.domain.transform.v20180208.AcceptDemandResponseUnmarshaller;
+import com.aliyuncs.v5.domain.transform.v20180129.SetDefaultRegistrantProfileResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class AcceptDemandResponse extends AcsResponse {
+public class SetDefaultRegistrantProfileResponse extends AcsResponse {
 
 	private String requestId;
-
-	private String bindUrl;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -36,17 +34,9 @@ public class AcceptDemandResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
-	public String getBindUrl() {
-		return this.bindUrl;
-	}
-
-	public void setBindUrl(String bindUrl) {
-		this.bindUrl = bindUrl;
-	}
-
 	@Override
-	public AcceptDemandResponse getInstance(UnmarshallerContext context) {
-		return	AcceptDemandResponseUnmarshaller.unmarshall(this, context);
+	public SetDefaultRegistrantProfileResponse getInstance(UnmarshallerContext context) {
+		return	SetDefaultRegistrantProfileResponseUnmarshaller.unmarshall(this, context);
 	}
 
 	@Override

@@ -12,19 +12,18 @@
  * limitations under the License.
  */
 
-package com.aliyuncs.v5.domain.transform.v20180208;
+package com.aliyuncs.v5.domain.transform.v20180129;
 
-import com.aliyuncs.v5.domain.model.v20180208.AcceptDemandResponse;
+import com.aliyuncs.v5.domain.model.v20180129.DeleteContactTemplatesResponse;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 
-public class AcceptDemandResponseUnmarshaller {
+public class DeleteContactTemplatesResponseUnmarshaller {
 
-	public static AcceptDemandResponse unmarshall(AcceptDemandResponse acceptDemandResponse, UnmarshallerContext _ctx) {
+	public static DeleteContactTemplatesResponse unmarshall(DeleteContactTemplatesResponse deleteContactTemplatesResponse, UnmarshallerContext _ctx) {
 		
-		acceptDemandResponse.setRequestId(_ctx.stringValue("AcceptDemandResponse.RequestId"));
-		acceptDemandResponse.setBindUrl(_ctx.stringValue("AcceptDemandResponse.BindUrl"));
+		deleteContactTemplatesResponse.setRequestId(_ctx.stringValue("DeleteContactTemplatesResponse.RequestId"));
 	 
-	 	return acceptDemandResponse;
+	 	return deleteContactTemplatesResponse;
 	}
 }
