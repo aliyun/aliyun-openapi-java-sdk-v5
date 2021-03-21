@@ -16,6 +16,7 @@ package com.aliyuncs.v5.imm.model.v20170906;
 
 import com.aliyuncs.v5.RpcAcsRequest;
 import com.aliyuncs.v5.http.MethodType;
+import com.aliyuncs.v5.imm.Endpoint;
 
 /**
  * @author auto create
@@ -46,6 +47,10 @@ public class GetOfficePreviewURLRequest extends RpcAcsRequest<GetOfficePreviewUR
 	public GetOfficePreviewURLRequest() {
 		super("imm", "2017-09-06", "GetOfficePreviewURL", "imm");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getSrcType() {

@@ -16,6 +16,7 @@ package com.aliyuncs.v5.imm.model.v20170906;
 
 import com.aliyuncs.v5.RpcAcsRequest;
 import com.aliyuncs.v5.http.MethodType;
+import com.aliyuncs.v5.imm.Endpoint;
 
 /**
  * @author auto create
@@ -30,9 +31,13 @@ public class GetWebofficeURLRequest extends RpcAcsRequest<GetWebofficeURLRespons
 
 	private String file;
 
+	private Boolean hidecmb;
+
 	private String notifyEndpoint;
 
 	private String fileID;
+
+	private String watermark;
 
 	private String notifyTopicName;
 
@@ -42,6 +47,10 @@ public class GetWebofficeURLRequest extends RpcAcsRequest<GetWebofficeURLRespons
 	public GetWebofficeURLRequest() {
 		super("imm", "2017-09-06", "GetWebofficeURL", "imm");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getSrcType() {
@@ -77,6 +86,17 @@ public class GetWebofficeURLRequest extends RpcAcsRequest<GetWebofficeURLRespons
 		}
 	}
 
+	public Boolean getHidecmb() {
+		return this.hidecmb;
+	}
+
+	public void setHidecmb(Boolean hidecmb) {
+		this.hidecmb = hidecmb;
+		if(hidecmb != null){
+			putQueryParameter("Hidecmb", hidecmb.toString());
+		}
+	}
+
 	public String getNotifyEndpoint() {
 		return this.notifyEndpoint;
 	}
@@ -96,6 +116,17 @@ public class GetWebofficeURLRequest extends RpcAcsRequest<GetWebofficeURLRespons
 		this.fileID = fileID;
 		if(fileID != null){
 			putQueryParameter("FileID", fileID);
+		}
+	}
+
+	public String getWatermark() {
+		return this.watermark;
+	}
+
+	public void setWatermark(String watermark) {
+		this.watermark = watermark;
+		if(watermark != null){
+			putQueryParameter("Watermark", watermark);
 		}
 	}
 

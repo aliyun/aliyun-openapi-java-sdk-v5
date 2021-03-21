@@ -16,6 +16,7 @@ package com.aliyuncs.v5.imm.model.v20170906;
 
 import com.aliyuncs.v5.RpcAcsRequest;
 import com.aliyuncs.v5.http.MethodType;
+import com.aliyuncs.v5.imm.Endpoint;
 
 /**
  * @author auto create
@@ -36,6 +37,8 @@ public class UpdateFaceGroupRequest extends RpcAcsRequest<UpdateFaceGroupRespons
 
 	private String groupName;
 
+	private String resetItems;
+
 	private String remarksArrayA;
 
 	private String remarksArrayB;
@@ -50,6 +53,10 @@ public class UpdateFaceGroupRequest extends RpcAcsRequest<UpdateFaceGroupRespons
 	public UpdateFaceGroupRequest() {
 		super("imm", "2017-09-06", "UpdateFaceGroup", "imm");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	public String getProject() {
@@ -115,6 +122,17 @@ public class UpdateFaceGroupRequest extends RpcAcsRequest<UpdateFaceGroupRespons
 		this.groupName = groupName;
 		if(groupName != null){
 			putQueryParameter("GroupName", groupName);
+		}
+	}
+
+	public String getResetItems() {
+		return this.resetItems;
+	}
+
+	public void setResetItems(String resetItems) {
+		this.resetItems = resetItems;
+		if(resetItems != null){
+			putQueryParameter("ResetItems", resetItems);
 		}
 	}
 

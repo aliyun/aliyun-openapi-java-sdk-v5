@@ -16,6 +16,7 @@ package com.aliyuncs.v5.imm.model.v20170906;
 
 import com.aliyuncs.v5.RpcAcsRequest;
 import com.aliyuncs.v5.http.MethodType;
+import com.aliyuncs.v5.imm.Endpoint;
 
 /**
  * @author auto create
@@ -26,6 +27,10 @@ public class DescribeRegionsRequest extends RpcAcsRequest<DescribeRegionsRespons
 	public DescribeRegionsRequest() {
 		super("imm", "2017-09-06", "DescribeRegions", "imm");
 		setMethod(MethodType.POST);
+		try {
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
+			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointRegional").set(this, Endpoint.endpointRegionalType);
+		} catch (Exception e) {}
 	}
 
 	@Override
