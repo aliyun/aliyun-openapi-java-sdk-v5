@@ -125,7 +125,7 @@ public class Main {
 
 ## 相关
 * [阿里云服务 Regions & Endpoints](https://developer.aliyun.com/endpoints)
-* [OpenAPI Explorer](https://api.aliyun.com/)
+* [OpenAPI 开发者门户](https://next.api.aliyun.com/)
 * [最新源码](https://github.com/aliyun/aliyun-openapi-java-sdk-v5)
 
 ## 许可证
