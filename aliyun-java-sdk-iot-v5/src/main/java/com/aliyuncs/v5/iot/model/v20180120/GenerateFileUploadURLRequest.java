@@ -29,6 +29,8 @@ public class GenerateFileUploadURLRequest extends RpcAcsRequest<GenerateFileUplo
 
 	private String iotInstanceId;
 
+	private String fileName;
+
 	private String bizCode;
 	public GenerateFileUploadURLRequest() {
 		super("Iot", "2018-01-20", "GenerateFileUploadURL", "iot");
@@ -58,6 +60,17 @@ public class GenerateFileUploadURLRequest extends RpcAcsRequest<GenerateFileUplo
 		this.iotInstanceId = iotInstanceId;
 		if(iotInstanceId != null){
 			putQueryParameter("IotInstanceId", iotInstanceId);
+		}
+	}
+
+	public String getFileName() {
+		return this.fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+		if(fileName != null){
+			putQueryParameter("FileName", fileName);
 		}
 	}
 
