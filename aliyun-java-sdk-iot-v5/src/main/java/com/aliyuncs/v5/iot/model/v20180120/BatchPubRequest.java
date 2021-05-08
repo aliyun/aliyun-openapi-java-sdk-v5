@@ -38,7 +38,7 @@ public class BatchPubRequest extends RpcAcsRequest<BatchPubResponse> {
 
 	private List<String> deviceName;
 	public BatchPubRequest() {
-		super("Iot", "2018-01-20", "BatchPub", "iot");
+		super("Iot", "2018-01-20", "BatchPub");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

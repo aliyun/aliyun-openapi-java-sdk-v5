@@ -34,7 +34,7 @@ public class BatchCheckDeviceNamesRequest extends RpcAcsRequest<BatchCheckDevice
 
 	private List<String> deviceName;
 	public BatchCheckDeviceNamesRequest() {
-		super("Iot", "2018-01-20", "BatchCheckDeviceNames", "iot");
+		super("Iot", "2018-01-20", "BatchCheckDeviceNames");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
