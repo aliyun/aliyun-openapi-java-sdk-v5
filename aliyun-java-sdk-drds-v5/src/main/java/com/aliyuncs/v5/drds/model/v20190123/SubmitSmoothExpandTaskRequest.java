@@ -36,7 +36,7 @@ public class SubmitSmoothExpandTaskRequest extends RpcAcsRequest<SubmitSmoothExp
 
 	private List<TransferTaskInfos> transferTaskInfos;
 	public SubmitSmoothExpandTaskRequest() {
-		super("Drds", "2019-01-23", "SubmitSmoothExpandTask", "Drds");
+		super("Drds", "2019-01-23", "SubmitSmoothExpandTask", "drds");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

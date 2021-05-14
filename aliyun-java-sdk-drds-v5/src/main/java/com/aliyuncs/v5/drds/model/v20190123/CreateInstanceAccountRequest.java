@@ -34,7 +34,7 @@ public class CreateInstanceAccountRequest extends RpcAcsRequest<CreateInstanceAc
 
 	private List<DbPrivilege> dbPrivilege;
 	public CreateInstanceAccountRequest() {
-		super("Drds", "2019-01-23", "CreateInstanceAccount", "Drds");
+		super("Drds", "2019-01-23", "CreateInstanceAccount", "drds");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
