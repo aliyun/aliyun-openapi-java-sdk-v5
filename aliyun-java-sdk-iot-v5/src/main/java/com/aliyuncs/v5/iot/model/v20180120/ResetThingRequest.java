@@ -33,7 +33,7 @@ public class ResetThingRequest extends RpcAcsRequest<ResetThingResponse> {
 
 	private String deviceName;
 	public ResetThingRequest() {
-		super("Iot", "2018-01-20", "ResetThing");
+		super("Iot", "2018-01-20", "ResetThing", "iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

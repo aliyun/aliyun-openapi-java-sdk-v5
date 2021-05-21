@@ -34,7 +34,7 @@ public class BatchDeleteEdgeInstanceChannelRequest extends RpcAcsRequest<BatchDe
 
 	private List<String> channelIds;
 	public BatchDeleteEdgeInstanceChannelRequest() {
-		super("Iot", "2018-01-20", "BatchDeleteEdgeInstanceChannel");
+		super("Iot", "2018-01-20", "BatchDeleteEdgeInstanceChannel", "iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

@@ -38,7 +38,7 @@ public class ListAnalyticsDataRequest extends RpcAcsRequest<ListAnalyticsDataRes
 
 	private List<Condition> condition;
 	public ListAnalyticsDataRequest() {
-		super("Iot", "2018-01-20", "ListAnalyticsData");
+		super("Iot", "2018-01-20", "ListAnalyticsData", "iot");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
