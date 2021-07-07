@@ -22,16 +22,28 @@ import com.aliyuncs.v5.dds.Endpoint;
  * @author auto create
  * @version 
  */
-public class ModifyDBInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyDBInstanceMaintainTimeResponse> {
+public class ModifyNodeSpecBatchRequest extends RpcAcsRequest<ModifyNodeSpecBatchResponse> {
 	   
 
 	private Long resourceOwnerId;
 
+	private String clientToken;
+
+	private String nodesInfo;
+
+	private String couponNo;
+
 	private String securityToken;
 
-	private String maintainStartTime;
+	private String effectiveTime;
 
 	private String dBInstanceId;
+
+	private String businessInfo;
+
+	private Boolean autoPay;
+
+	private String fromApp;
 
 	private String resourceOwnerAccount;
 
@@ -39,9 +51,9 @@ public class ModifyDBInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyDBI
 
 	private Long ownerId;
 
-	private String maintainEndTime;
-	public ModifyDBInstanceMaintainTimeRequest() {
-		super("Dds", "2015-12-01", "ModifyDBInstanceMaintainTime", "Dds");
+	private String orderType;
+	public ModifyNodeSpecBatchRequest() {
+		super("Dds", "2015-12-01", "ModifyNodeSpecBatch", "Dds");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -60,6 +72,39 @@ public class ModifyDBInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyDBI
 		}
 	}
 
+	public String getClientToken() {
+		return this.clientToken;
+	}
+
+	public void setClientToken(String clientToken) {
+		this.clientToken = clientToken;
+		if(clientToken != null){
+			putQueryParameter("ClientToken", clientToken);
+		}
+	}
+
+	public String getNodesInfo() {
+		return this.nodesInfo;
+	}
+
+	public void setNodesInfo(String nodesInfo) {
+		this.nodesInfo = nodesInfo;
+		if(nodesInfo != null){
+			putQueryParameter("NodesInfo", nodesInfo);
+		}
+	}
+
+	public String getCouponNo() {
+		return this.couponNo;
+	}
+
+	public void setCouponNo(String couponNo) {
+		this.couponNo = couponNo;
+		if(couponNo != null){
+			putQueryParameter("CouponNo", couponNo);
+		}
+	}
+
 	public String getSecurityToken() {
 		return this.securityToken;
 	}
@@ -71,14 +116,14 @@ public class ModifyDBInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyDBI
 		}
 	}
 
-	public String getMaintainStartTime() {
-		return this.maintainStartTime;
+	public String getEffectiveTime() {
+		return this.effectiveTime;
 	}
 
-	public void setMaintainStartTime(String maintainStartTime) {
-		this.maintainStartTime = maintainStartTime;
-		if(maintainStartTime != null){
-			putQueryParameter("MaintainStartTime", maintainStartTime);
+	public void setEffectiveTime(String effectiveTime) {
+		this.effectiveTime = effectiveTime;
+		if(effectiveTime != null){
+			putQueryParameter("EffectiveTime", effectiveTime);
 		}
 	}
 
@@ -90,6 +135,39 @@ public class ModifyDBInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyDBI
 		this.dBInstanceId = dBInstanceId;
 		if(dBInstanceId != null){
 			putQueryParameter("DBInstanceId", dBInstanceId);
+		}
+	}
+
+	public String getBusinessInfo() {
+		return this.businessInfo;
+	}
+
+	public void setBusinessInfo(String businessInfo) {
+		this.businessInfo = businessInfo;
+		if(businessInfo != null){
+			putQueryParameter("BusinessInfo", businessInfo);
+		}
+	}
+
+	public Boolean getAutoPay() {
+		return this.autoPay;
+	}
+
+	public void setAutoPay(Boolean autoPay) {
+		this.autoPay = autoPay;
+		if(autoPay != null){
+			putQueryParameter("AutoPay", autoPay.toString());
+		}
+	}
+
+	public String getFromApp() {
+		return this.fromApp;
+	}
+
+	public void setFromApp(String fromApp) {
+		this.fromApp = fromApp;
+		if(fromApp != null){
+			putQueryParameter("FromApp", fromApp);
 		}
 	}
 
@@ -126,20 +204,20 @@ public class ModifyDBInstanceMaintainTimeRequest extends RpcAcsRequest<ModifyDBI
 		}
 	}
 
-	public String getMaintainEndTime() {
-		return this.maintainEndTime;
+	public String getOrderType() {
+		return this.orderType;
 	}
 
-	public void setMaintainEndTime(String maintainEndTime) {
-		this.maintainEndTime = maintainEndTime;
-		if(maintainEndTime != null){
-			putQueryParameter("MaintainEndTime", maintainEndTime);
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+		if(orderType != null){
+			putQueryParameter("OrderType", orderType);
 		}
 	}
 
 	@Override
-	public Class<ModifyDBInstanceMaintainTimeResponse> getResponseClass() {
-		return ModifyDBInstanceMaintainTimeResponse.class;
+	public Class<ModifyNodeSpecBatchResponse> getResponseClass() {
+		return ModifyNodeSpecBatchResponse.class;
 	}
 
 }
