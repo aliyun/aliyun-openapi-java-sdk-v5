@@ -29,7 +29,7 @@ public class UpdateCommodityRequest extends RpcAcsRequest<UpdateCommodityRespons
 
 	private String content;
 	public UpdateCommodityRequest() {
-		super("Market", "2015-11-01", "UpdateCommodity", "market");
+		super("Market", "2015-11-01", "UpdateCommodity");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

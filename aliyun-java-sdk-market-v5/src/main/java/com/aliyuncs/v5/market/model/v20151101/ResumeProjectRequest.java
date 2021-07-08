@@ -31,7 +31,7 @@ public class ResumeProjectRequest extends RpcAcsRequest<ResumeProjectResponse> {
 
 	private Long nodeId;
 	public ResumeProjectRequest() {
-		super("Market", "2015-11-01", "ResumeProject", "market");
+		super("Market", "2015-11-01", "ResumeProject");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

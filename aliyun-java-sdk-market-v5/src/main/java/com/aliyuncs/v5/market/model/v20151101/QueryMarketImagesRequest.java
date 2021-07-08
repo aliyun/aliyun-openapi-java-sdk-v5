@@ -27,7 +27,7 @@ public class QueryMarketImagesRequest extends RpcAcsRequest<QueryMarketImagesRes
 
 	private String param;
 	public QueryMarketImagesRequest() {
-		super("Market", "2015-11-01", "QueryMarketImages", "market");
+		super("Market", "2015-11-01", "QueryMarketImages");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

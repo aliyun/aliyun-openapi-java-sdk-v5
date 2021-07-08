@@ -31,7 +31,7 @@ public class PauseProjectRequest extends RpcAcsRequest<PauseProjectResponse> {
 
 	private Long nodeId;
 	public PauseProjectRequest() {
-		super("Market", "2015-11-01", "PauseProject", "market");
+		super("Market", "2015-11-01", "PauseProject");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

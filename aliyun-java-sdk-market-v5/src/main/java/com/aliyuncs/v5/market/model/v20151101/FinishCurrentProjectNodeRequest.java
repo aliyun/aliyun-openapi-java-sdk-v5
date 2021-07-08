@@ -33,7 +33,7 @@ public class FinishCurrentProjectNodeRequest extends RpcAcsRequest<FinishCurrent
 
 	private Long nodeId;
 	public FinishCurrentProjectNodeRequest() {
-		super("Market", "2015-11-01", "FinishCurrentProjectNode", "market");
+		super("Market", "2015-11-01", "FinishCurrentProjectNode");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

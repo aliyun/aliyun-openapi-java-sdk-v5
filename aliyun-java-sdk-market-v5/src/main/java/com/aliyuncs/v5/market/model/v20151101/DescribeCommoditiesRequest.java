@@ -53,7 +53,7 @@ public class DescribeCommoditiesRequest extends RpcAcsRequest<DescribeCommoditie
 
 	private String commodityCategoryIds;
 	public DescribeCommoditiesRequest() {
-		super("Market", "2015-11-01", "DescribeCommodities", "market");
+		super("Market", "2015-11-01", "DescribeCommodities");
 		setMethod(MethodType.GET);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

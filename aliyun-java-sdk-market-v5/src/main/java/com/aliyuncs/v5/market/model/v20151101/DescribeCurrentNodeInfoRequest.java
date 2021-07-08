@@ -27,7 +27,7 @@ public class DescribeCurrentNodeInfoRequest extends RpcAcsRequest<DescribeCurren
 
 	private String instanceId;
 	public DescribeCurrentNodeInfoRequest() {
-		super("Market", "2015-11-01", "DescribeCurrentNodeInfo", "market");
+		super("Market", "2015-11-01", "DescribeCurrentNodeInfo");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

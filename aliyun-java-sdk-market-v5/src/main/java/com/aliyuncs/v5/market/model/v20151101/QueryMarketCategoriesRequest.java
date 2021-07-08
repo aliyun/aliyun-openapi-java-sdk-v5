@@ -25,7 +25,7 @@ import com.aliyuncs.v5.market.Endpoint;
 public class QueryMarketCategoriesRequest extends RpcAcsRequest<QueryMarketCategoriesResponse> {
 	   
 	public QueryMarketCategoriesRequest() {
-		super("Market", "2015-11-01", "QueryMarketCategories", "market");
+		super("Market", "2015-11-01", "QueryMarketCategories");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);

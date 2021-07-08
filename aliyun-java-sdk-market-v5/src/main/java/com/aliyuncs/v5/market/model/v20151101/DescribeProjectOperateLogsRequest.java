@@ -27,7 +27,7 @@ public class DescribeProjectOperateLogsRequest extends RpcAcsRequest<DescribePro
 
 	private String instanceId;
 	public DescribeProjectOperateLogsRequest() {
-		super("Market", "2015-11-01", "DescribeProjectOperateLogs", "market");
+		super("Market", "2015-11-01", "DescribeProjectOperateLogs");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
