@@ -22,16 +22,18 @@ import com.aliyuncs.v5.dts.Endpoint;
  * @author auto create
  * @version 
  */
-public class ReplaceInstanceRequest extends RpcAcsRequest<ReplaceInstanceResponse> {
+public class RenewInstanceRequest extends RpcAcsRequest<RenewInstanceResponse> {
 	   
 
-	private String newInstanceId;
+	private String period;
+
+	private String buyCount;
 
 	private String dtsJobId;
 
 	private String chargeType;
-	public ReplaceInstanceRequest() {
-		super("Dts", "2020-01-01", "ReplaceInstance", "dts");
+	public RenewInstanceRequest() {
+		super("Dts", "2020-01-01", "RenewInstance", "dts");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -39,14 +41,25 @@ public class ReplaceInstanceRequest extends RpcAcsRequest<ReplaceInstanceRespons
 		} catch (Exception e) {}
 	}
 
-	public String getNewInstanceId() {
-		return this.newInstanceId;
+	public String getPeriod() {
+		return this.period;
 	}
 
-	public void setNewInstanceId(String newInstanceId) {
-		this.newInstanceId = newInstanceId;
-		if(newInstanceId != null){
-			putQueryParameter("NewInstanceId", newInstanceId);
+	public void setPeriod(String period) {
+		this.period = period;
+		if(period != null){
+			putQueryParameter("Period", period);
+		}
+	}
+
+	public String getBuyCount() {
+		return this.buyCount;
+	}
+
+	public void setBuyCount(String buyCount) {
+		this.buyCount = buyCount;
+		if(buyCount != null){
+			putQueryParameter("BuyCount", buyCount);
 		}
 	}
 
@@ -73,8 +86,8 @@ public class ReplaceInstanceRequest extends RpcAcsRequest<ReplaceInstanceRespons
 	}
 
 	@Override
-	public Class<ReplaceInstanceResponse> getResponseClass() {
-		return ReplaceInstanceResponse.class;
+	public Class<RenewInstanceResponse> getResponseClass() {
+		return RenewInstanceResponse.class;
 	}
 
 }

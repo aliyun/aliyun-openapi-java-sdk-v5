@@ -14,18 +14,17 @@
 
 package com.aliyuncs.v5.dts.model.v20200101;
 
-import java.util.List;
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.dts.transform.v20200101.DescribeJobDiffStatusResponseUnmarshaller;
+import com.aliyuncs.v5.dts.transform.v20200101.TransferInstanceClassResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class DescribeJobDiffStatusResponse extends AcsResponse {
+public class TransferInstanceClassResponse extends AcsResponse {
 
-	private String dynamicCode;
+	private String code;
 
 	private String dynamicMessage;
 
@@ -39,16 +38,20 @@ public class DescribeJobDiffStatusResponse extends AcsResponse {
 
 	private Boolean success;
 
-	private Long total;
+	private String dtsJobId;
 
-	private List<DiffInfosItem> diffInfos;
+	private String instanceId;
 
-	public String getDynamicCode() {
-		return this.dynamicCode;
+	private String chargeType;
+
+	private String endTime;
+
+	public String getCode() {
+		return this.code;
 	}
 
-	public void setDynamicCode(String dynamicCode) {
-		this.dynamicCode = dynamicCode;
+	public void setCode(String code) {
+		this.code = code;
 	}
 
 	public String getDynamicMessage() {
@@ -99,88 +102,41 @@ public class DescribeJobDiffStatusResponse extends AcsResponse {
 		this.success = success;
 	}
 
-	public Long getTotal() {
-		return this.total;
+	public String getDtsJobId() {
+		return this.dtsJobId;
 	}
 
-	public void setTotal(Long total) {
-		this.total = total;
+	public void setDtsJobId(String dtsJobId) {
+		this.dtsJobId = dtsJobId;
 	}
 
-	public List<DiffInfosItem> getDiffInfos() {
-		return this.diffInfos;
+	public String getInstanceId() {
+		return this.instanceId;
 	}
 
-	public void setDiffInfos(List<DiffInfosItem> diffInfos) {
-		this.diffInfos = diffInfos;
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
 	}
 
-	public static class DiffInfosItem {
+	public String getChargeType() {
+		return this.chargeType;
+	}
 
-		private String scheduleJobId;
+	public void setChargeType(String chargeType) {
+		this.chargeType = chargeType;
+	}
 
-		private String dbName;
+	public String getEndTime() {
+		return this.endTime;
+	}
 
-		private String tableName;
-
-		private String pkName;
-
-		private String pkValue;
-
-		private String diff;
-
-		public String getScheduleJobId() {
-			return this.scheduleJobId;
-		}
-
-		public void setScheduleJobId(String scheduleJobId) {
-			this.scheduleJobId = scheduleJobId;
-		}
-
-		public String getDbName() {
-			return this.dbName;
-		}
-
-		public void setDbName(String dbName) {
-			this.dbName = dbName;
-		}
-
-		public String getTableName() {
-			return this.tableName;
-		}
-
-		public void setTableName(String tableName) {
-			this.tableName = tableName;
-		}
-
-		public String getPkName() {
-			return this.pkName;
-		}
-
-		public void setPkName(String pkName) {
-			this.pkName = pkName;
-		}
-
-		public String getPkValue() {
-			return this.pkValue;
-		}
-
-		public void setPkValue(String pkValue) {
-			this.pkValue = pkValue;
-		}
-
-		public String getDiff() {
-			return this.diff;
-		}
-
-		public void setDiff(String diff) {
-			this.diff = diff;
-		}
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 
 	@Override
-	public DescribeJobDiffStatusResponse getInstance(UnmarshallerContext context) {
-		return	DescribeJobDiffStatusResponseUnmarshaller.unmarshall(this, context);
+	public TransferInstanceClassResponse getInstance(UnmarshallerContext context) {
+		return	TransferInstanceClassResponseUnmarshaller.unmarshall(this, context);
 	}
 
 	@Override

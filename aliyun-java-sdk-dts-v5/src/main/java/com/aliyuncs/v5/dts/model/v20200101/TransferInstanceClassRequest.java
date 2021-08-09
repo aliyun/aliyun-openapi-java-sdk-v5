@@ -22,20 +22,16 @@ import com.aliyuncs.v5.dts.Endpoint;
  * @author auto create
  * @version 
  */
-public class DescribeJobDiffStatusRequest extends RpcAcsRequest<DescribeJobDiffStatusResponse> {
+public class TransferInstanceClassRequest extends RpcAcsRequest<TransferInstanceClassResponse> {
 	   
 
-	private String pageNumber;
-
-	private String tbName;
-
-	private String dbName;
-
-	private String pageSize;
+	private String instanceClass;
 
 	private String dtsJobId;
-	public DescribeJobDiffStatusRequest() {
-		super("Dts", "2020-01-01", "DescribeJobDiffStatus", "dts");
+
+	private String orderType;
+	public TransferInstanceClassRequest() {
+		super("Dts", "2020-01-01", "TransferInstanceClass", "dts");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -43,47 +39,14 @@ public class DescribeJobDiffStatusRequest extends RpcAcsRequest<DescribeJobDiffS
 		} catch (Exception e) {}
 	}
 
-	public String getPageNumber() {
-		return this.pageNumber;
+	public String getInstanceClass() {
+		return this.instanceClass;
 	}
 
-	public void setPageNumber(String pageNumber) {
-		this.pageNumber = pageNumber;
-		if(pageNumber != null){
-			putQueryParameter("PageNumber", pageNumber);
-		}
-	}
-
-	public String getTbName() {
-		return this.tbName;
-	}
-
-	public void setTbName(String tbName) {
-		this.tbName = tbName;
-		if(tbName != null){
-			putQueryParameter("TbName", tbName);
-		}
-	}
-
-	public String getDbName() {
-		return this.dbName;
-	}
-
-	public void setDbName(String dbName) {
-		this.dbName = dbName;
-		if(dbName != null){
-			putQueryParameter("DbName", dbName);
-		}
-	}
-
-	public String getPageSize() {
-		return this.pageSize;
-	}
-
-	public void setPageSize(String pageSize) {
-		this.pageSize = pageSize;
-		if(pageSize != null){
-			putQueryParameter("PageSize", pageSize);
+	public void setInstanceClass(String instanceClass) {
+		this.instanceClass = instanceClass;
+		if(instanceClass != null){
+			putQueryParameter("InstanceClass", instanceClass);
 		}
 	}
 
@@ -98,9 +61,20 @@ public class DescribeJobDiffStatusRequest extends RpcAcsRequest<DescribeJobDiffS
 		}
 	}
 
+	public String getOrderType() {
+		return this.orderType;
+	}
+
+	public void setOrderType(String orderType) {
+		this.orderType = orderType;
+		if(orderType != null){
+			putQueryParameter("OrderType", orderType);
+		}
+	}
+
 	@Override
-	public Class<DescribeJobDiffStatusResponse> getResponseClass() {
-		return DescribeJobDiffStatusResponse.class;
+	public Class<TransferInstanceClassResponse> getResponseClass() {
+		return TransferInstanceClassResponse.class;
 	}
 
 }

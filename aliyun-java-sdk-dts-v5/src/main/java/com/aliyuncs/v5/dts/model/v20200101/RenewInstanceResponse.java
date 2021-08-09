@@ -15,18 +15,24 @@
 package com.aliyuncs.v5.dts.model.v20200101;
 
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.dts.transform.v20200101.ReplaceInstanceResponseUnmarshaller;
+import com.aliyuncs.v5.dts.transform.v20200101.RenewInstanceResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class ReplaceInstanceResponse extends AcsResponse {
+public class RenewInstanceResponse extends AcsResponse {
+
+	private String chargeType;
 
 	private String code;
 
+	private String dtsJobId;
+
 	private String dynamicMessage;
+
+	private String endTime;
 
 	private String errCode;
 
@@ -34,17 +40,19 @@ public class ReplaceInstanceResponse extends AcsResponse {
 
 	private Integer httpStatusCode;
 
+	private String instanceId;
+
 	private String requestId;
 
 	private Boolean success;
 
-	private String dtsJobId;
+	public String getChargeType() {
+		return this.chargeType;
+	}
 
-	private String instanceId;
-
-	private String chargeType;
-
-	private String endTime;
+	public void setChargeType(String chargeType) {
+		this.chargeType = chargeType;
+	}
 
 	public String getCode() {
 		return this.code;
@@ -54,12 +62,28 @@ public class ReplaceInstanceResponse extends AcsResponse {
 		this.code = code;
 	}
 
+	public String getDtsJobId() {
+		return this.dtsJobId;
+	}
+
+	public void setDtsJobId(String dtsJobId) {
+		this.dtsJobId = dtsJobId;
+	}
+
 	public String getDynamicMessage() {
 		return this.dynamicMessage;
 	}
 
 	public void setDynamicMessage(String dynamicMessage) {
 		this.dynamicMessage = dynamicMessage;
+	}
+
+	public String getEndTime() {
+		return this.endTime;
+	}
+
+	public void setEndTime(String endTime) {
+		this.endTime = endTime;
 	}
 
 	public String getErrCode() {
@@ -86,6 +110,14 @@ public class ReplaceInstanceResponse extends AcsResponse {
 		this.httpStatusCode = httpStatusCode;
 	}
 
+	public String getInstanceId() {
+		return this.instanceId;
+	}
+
+	public void setInstanceId(String instanceId) {
+		this.instanceId = instanceId;
+	}
+
 	public String getRequestId() {
 		return this.requestId;
 	}
@@ -102,41 +134,9 @@ public class ReplaceInstanceResponse extends AcsResponse {
 		this.success = success;
 	}
 
-	public String getDtsJobId() {
-		return this.dtsJobId;
-	}
-
-	public void setDtsJobId(String dtsJobId) {
-		this.dtsJobId = dtsJobId;
-	}
-
-	public String getInstanceId() {
-		return this.instanceId;
-	}
-
-	public void setInstanceId(String instanceId) {
-		this.instanceId = instanceId;
-	}
-
-	public String getChargeType() {
-		return this.chargeType;
-	}
-
-	public void setChargeType(String chargeType) {
-		this.chargeType = chargeType;
-	}
-
-	public String getEndTime() {
-		return this.endTime;
-	}
-
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-	}
-
 	@Override
-	public ReplaceInstanceResponse getInstance(UnmarshallerContext context) {
-		return	ReplaceInstanceResponseUnmarshaller.unmarshall(this, context);
+	public RenewInstanceResponse getInstance(UnmarshallerContext context) {
+		return	RenewInstanceResponseUnmarshaller.unmarshall(this, context);
 	}
 
 	@Override
