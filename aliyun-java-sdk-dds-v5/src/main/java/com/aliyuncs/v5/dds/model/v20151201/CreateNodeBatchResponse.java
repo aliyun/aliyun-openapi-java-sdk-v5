@@ -15,28 +15,20 @@
 package com.aliyuncs.v5.dds.model.v20151201;
 
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.dds.transform.v20151201.TransformToPrePaidResponseUnmarshaller;
+import com.aliyuncs.v5.dds.transform.v20151201.CreateNodeBatchResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class TransformToPrePaidResponse extends AcsResponse {
-
-	private String endTime;
+public class CreateNodeBatchResponse extends AcsResponse {
 
 	private String requestId;
 
 	private String orderId;
 
-	public String getEndTime() {
-		return this.endTime;
-	}
-
-	public void setEndTime(String endTime) {
-		this.endTime = endTime;
-	}
+	private String nodeId;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -54,8 +46,16 @@ public class TransformToPrePaidResponse extends AcsResponse {
 		this.orderId = orderId;
 	}
 
+	public String getNodeId() {
+		return this.nodeId;
+	}
+
+	public void setNodeId(String nodeId) {
+		this.nodeId = nodeId;
+	}
+
 	@Override
-	public TransformToPrePaidResponse getInstance(UnmarshallerContext context) {
-		return	TransformToPrePaidResponseUnmarshaller.unmarshall(this, context);
+	public CreateNodeBatchResponse getInstance(UnmarshallerContext context) {
+		return	CreateNodeBatchResponseUnmarshaller.unmarshall(this, context);
 	}
 }
