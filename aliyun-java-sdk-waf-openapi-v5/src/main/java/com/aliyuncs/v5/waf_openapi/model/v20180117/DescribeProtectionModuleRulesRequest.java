@@ -12,7 +12,7 @@
  * limitations under the License.
  */
 
-package com.aliyuncs.v5.waf_openapi.model.v20190910;
+package com.aliyuncs.v5.waf_openapi.model.v20180117;
 
 import com.aliyuncs.v5.RpcAcsRequest;
 import com.aliyuncs.v5.http.MethodType;
@@ -22,16 +22,22 @@ import com.aliyuncs.v5.waf_openapi.Endpoint;
  * @author auto create
  * @version 
  */
-public class ModifyDomainClusterTypeRequest extends RpcAcsRequest<ModifyDomainClusterTypeResponse> {
+public class DescribeProtectionModuleRulesRequest extends RpcAcsRequest<DescribeProtectionModuleRulesResponse> {
 	   
 
-	private Integer clusterType;
+	private String defense;
+
+	private Integer pageSize;
+
+	private Integer currentPage;
 
 	private String instanceId;
 
 	private String domain;
-	public ModifyDomainClusterTypeRequest() {
-		super("waf-openapi", "2019-09-10", "ModifyDomainClusterType", "waf");
+
+	private String region;
+	public DescribeProtectionModuleRulesRequest() {
+		super("waf-openapi", "2018-01-17", "DescribeProtectionModuleRules", "waf");
 		setMethod(MethodType.POST);
 		try {
 			com.aliyuncs.v5.AcsRequest.class.getDeclaredField("productEndpointMap").set(this, Endpoint.endpointMap);
@@ -39,14 +45,36 @@ public class ModifyDomainClusterTypeRequest extends RpcAcsRequest<ModifyDomainCl
 		} catch (Exception e) {}
 	}
 
-	public Integer getClusterType() {
-		return this.clusterType;
+	public String getDefense() {
+		return this.defense;
 	}
 
-	public void setClusterType(Integer clusterType) {
-		this.clusterType = clusterType;
-		if(clusterType != null){
-			putQueryParameter("ClusterType", clusterType.toString());
+	public void setDefense(String defense) {
+		this.defense = defense;
+		if(defense != null){
+			putQueryParameter("Defense", defense);
+		}
+	}
+
+	public Integer getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(Integer pageSize) {
+		this.pageSize = pageSize;
+		if(pageSize != null){
+			putQueryParameter("PageSize", pageSize.toString());
+		}
+	}
+
+	public Integer getCurrentPage() {
+		return this.currentPage;
+	}
+
+	public void setCurrentPage(Integer currentPage) {
+		this.currentPage = currentPage;
+		if(currentPage != null){
+			putQueryParameter("CurrentPage", currentPage.toString());
 		}
 	}
 
@@ -72,9 +100,20 @@ public class ModifyDomainClusterTypeRequest extends RpcAcsRequest<ModifyDomainCl
 		}
 	}
 
+	public String getRegion() {
+		return this.region;
+	}
+
+	public void setRegion(String region) {
+		this.region = region;
+		if(region != null){
+			putQueryParameter("Region", region);
+		}
+	}
+
 	@Override
-	public Class<ModifyDomainClusterTypeResponse> getResponseClass() {
-		return ModifyDomainClusterTypeResponse.class;
+	public Class<DescribeProtectionModuleRulesResponse> getResponseClass() {
+		return DescribeProtectionModuleRulesResponse.class;
 	}
 
 }

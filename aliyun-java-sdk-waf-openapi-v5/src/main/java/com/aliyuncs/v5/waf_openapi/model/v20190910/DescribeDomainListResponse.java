@@ -14,17 +14,22 @@
 
 package com.aliyuncs.v5.waf_openapi.model.v20190910;
 
+import java.util.List;
 import com.aliyuncs.v5.AcsResponse;
-import com.aliyuncs.v5.waf_openapi.transform.v20190910.ModifyDomainClusterTypeResponseUnmarshaller;
+import com.aliyuncs.v5.waf_openapi.transform.v20190910.DescribeDomainListResponseUnmarshaller;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 /**
  * @author auto create
  * @version 
  */
-public class ModifyDomainClusterTypeResponse extends AcsResponse {
+public class DescribeDomainListResponse extends AcsResponse {
 
 	private String requestId;
+
+	private Integer totalCount;
+
+	private List<String> domainNames;
 
 	public String getRequestId() {
 		return this.requestId;
@@ -34,8 +39,29 @@ public class ModifyDomainClusterTypeResponse extends AcsResponse {
 		this.requestId = requestId;
 	}
 
+	public Integer getTotalCount() {
+		return this.totalCount;
+	}
+
+	public void setTotalCount(Integer totalCount) {
+		this.totalCount = totalCount;
+	}
+
+	public List<String> getDomainNames() {
+		return this.domainNames;
+	}
+
+	public void setDomainNames(List<String> domainNames) {
+		this.domainNames = domainNames;
+	}
+
 	@Override
-	public ModifyDomainClusterTypeResponse getInstance(UnmarshallerContext context) {
-		return	ModifyDomainClusterTypeResponseUnmarshaller.unmarshall(this, context);
+	public DescribeDomainListResponse getInstance(UnmarshallerContext context) {
+		return	DescribeDomainListResponseUnmarshaller.unmarshall(this, context);
+	}
+
+	@Override
+	public boolean checkShowJsonItemName() {
+		return false;
 	}
 }

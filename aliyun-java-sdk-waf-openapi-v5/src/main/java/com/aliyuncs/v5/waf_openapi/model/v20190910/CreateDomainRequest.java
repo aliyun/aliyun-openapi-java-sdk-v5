@@ -27,6 +27,8 @@ public class CreateDomainRequest extends RpcAcsRequest<CreateDomainResponse> {
 
 	private Integer ipFollowStatus;
 
+	private String sniHost;
+
 	private String resourceGroupId;
 
 	private String httpPort;
@@ -35,9 +37,15 @@ public class CreateDomainRequest extends RpcAcsRequest<CreateDomainResponse> {
 
 	private Integer writeTime;
 
+	private Integer sniStatus;
+
+	private Integer accessHeaderMode;
+
 	private String accessType;
 
 	private String logHeaders;
+
+	private String accessHeaders;
 
 	private Integer connectionTime;
 
@@ -79,6 +87,17 @@ public class CreateDomainRequest extends RpcAcsRequest<CreateDomainResponse> {
 		this.ipFollowStatus = ipFollowStatus;
 		if(ipFollowStatus != null){
 			putQueryParameter("IpFollowStatus", ipFollowStatus.toString());
+		}
+	}
+
+	public String getSniHost() {
+		return this.sniHost;
+	}
+
+	public void setSniHost(String sniHost) {
+		this.sniHost = sniHost;
+		if(sniHost != null){
+			putQueryParameter("SniHost", sniHost);
 		}
 	}
 
@@ -126,6 +145,28 @@ public class CreateDomainRequest extends RpcAcsRequest<CreateDomainResponse> {
 		}
 	}
 
+	public Integer getSniStatus() {
+		return this.sniStatus;
+	}
+
+	public void setSniStatus(Integer sniStatus) {
+		this.sniStatus = sniStatus;
+		if(sniStatus != null){
+			putQueryParameter("SniStatus", sniStatus.toString());
+		}
+	}
+
+	public Integer getAccessHeaderMode() {
+		return this.accessHeaderMode;
+	}
+
+	public void setAccessHeaderMode(Integer accessHeaderMode) {
+		this.accessHeaderMode = accessHeaderMode;
+		if(accessHeaderMode != null){
+			putQueryParameter("AccessHeaderMode", accessHeaderMode.toString());
+		}
+	}
+
 	public String getAccessType() {
 		return this.accessType;
 	}
@@ -145,6 +186,17 @@ public class CreateDomainRequest extends RpcAcsRequest<CreateDomainResponse> {
 		this.logHeaders = logHeaders;
 		if(logHeaders != null){
 			putQueryParameter("LogHeaders", logHeaders);
+		}
+	}
+
+	public String getAccessHeaders() {
+		return this.accessHeaders;
+	}
+
+	public void setAccessHeaders(String accessHeaders) {
+		this.accessHeaders = accessHeaders;
+		if(accessHeaders != null){
+			putQueryParameter("AccessHeaders", accessHeaders);
 		}
 	}
 

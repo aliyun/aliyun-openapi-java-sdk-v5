@@ -12,18 +12,18 @@
  * limitations under the License.
  */
 
-package com.aliyuncs.v5.waf_openapi.transform.v20190910;
+package com.aliyuncs.v5.waf_openapi.transform.v20180117;
 
-import com.aliyuncs.v5.waf_openapi.model.v20190910.ModifyDomainClusterTypeResponse;
+import com.aliyuncs.v5.waf_openapi.model.v20180117.CreateProtectionModuleRuleResponse;
 import com.aliyuncs.v5.transform.UnmarshallerContext;
 
 
-public class ModifyDomainClusterTypeResponseUnmarshaller {
+public class CreateProtectionModuleRuleResponseUnmarshaller {
 
-	public static ModifyDomainClusterTypeResponse unmarshall(ModifyDomainClusterTypeResponse modifyDomainClusterTypeResponse, UnmarshallerContext _ctx) {
+	public static CreateProtectionModuleRuleResponse unmarshall(CreateProtectionModuleRuleResponse createProtectionModuleRuleResponse, UnmarshallerContext _ctx) {
 		
-		modifyDomainClusterTypeResponse.setRequestId(_ctx.stringValue("ModifyDomainClusterTypeResponse.RequestId"));
+		createProtectionModuleRuleResponse.setRequestId(_ctx.stringValue("CreateProtectionModuleRuleResponse.RequestId"));
 	 
-	 	return modifyDomainClusterTypeResponse;
+	 	return createProtectionModuleRuleResponse;
 	}
 }
